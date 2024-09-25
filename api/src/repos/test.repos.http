@@ -1,2 +1,2 @@
-### Récupérer toutes les repos
+### Récupérer tous les repos
 GET http://localhost:3001/api/repos
