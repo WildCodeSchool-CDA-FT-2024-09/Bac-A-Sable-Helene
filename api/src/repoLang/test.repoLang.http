@@ -1,0 +1,2 @@
+### Récupérer tous les langues par repo
+GET http://localhost:3001/api/repoLang

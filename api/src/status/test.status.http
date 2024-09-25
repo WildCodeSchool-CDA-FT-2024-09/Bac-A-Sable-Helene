@@ -1,0 +1,2 @@
+### Récupérer tous les status
+GET http://localhost:3001/api/status
