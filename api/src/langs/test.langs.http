@@ -1,0 +1,2 @@
+### Récupérer toutes les langages
+GET http://localhost:3001/api/langs

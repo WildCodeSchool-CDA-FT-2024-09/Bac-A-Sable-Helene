@@ -1,0 +1,9 @@
+[
+  { "id": 1, "label": "HTML" },
+  { "id": 2, "label": "JavaScript" },
+  { "id": 3, "label": "CSS" },
+  { "id": 5, "label": "Dockerfile" },
+  { "id": 6, "label": "TypeScript" },
+  { "id": 12, "label": "Shell" },
+  { "id": 52, "label": "Vue" }
+]
