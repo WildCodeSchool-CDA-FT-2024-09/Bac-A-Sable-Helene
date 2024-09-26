@@ -5,6 +5,8 @@ import Joi from "joi";
 
 const repoControllers = express.Router();
 
+let myRepos : Array<Repo> = repos;
+
 const schema = Joi.object({
   id: Joi.string().required(),
   name: Joi.string().required(),
@@ -35,9 +37,26 @@ repoControllers.get('/:id', (req: Request, res: Response) => {
   }
 })
 
-repoControllers.post('/', validateRepo, (req: Request, res: Response) => {
-  repos.push(req.body)
+ repoControllers.post('/', validateRepo, (req: Request,res: Response) => {
+   repos.push(req.body)
   res.status(201).json(req.body)
+ })
+
+repoControllers.delete('/:id', (req: Request, res: Response) => {
+  //console.log(req.params.id);
+  myRepos = myRepos.filter((repo: Repo) => repo.id !== req.params.id)
+  res.sendStatus(204)
 })
+
+
+repoControllers.put('/:id', (req: Request, res: Response)=> {
+//Recherche de l'index dans le tableau du repo
+const index = myRepos.findIndex((repo)=> req.params.id == repo.id);
+
+// Méthode splice() modifie le contenu d'un tableau en retirant des éléments ou en ajoutant de nouveau éléments.
+  myRepos.splice(index, 1, req.body)
+  res.status(200).json(myRepos[index])
+})
+
 
 export default repoControllers;
