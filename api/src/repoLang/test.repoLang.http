@@ -1,2 +1,6 @@
 ### Récupérer tous les langues par repo
 GET http://localhost:3001/api/repoLang
+
+
+### Récupérer tous les langues pour un repo
+GET http://localhost:3001/api/repoLang/R_kgDOM2SnhA

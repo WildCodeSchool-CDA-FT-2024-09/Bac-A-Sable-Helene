@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
+app.use(express.json());  // MDW pour lire les fichiers json
 
 app.use('/api', router);
 
