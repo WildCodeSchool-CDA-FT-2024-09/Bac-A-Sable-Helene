@@ -1,0 +1,53 @@
+### Récupérer tous les repos
+GET http://localhost:3001/api/repos
+
+### Récupérer un repo
+GET http://localhost:3001/api/repos/R_kgDOMxIC4w
+
+### Récupérer un repo inexistant
+GET http://localhost:3001/api/repos/R_XXXXXXXXXX
+
+
+
+
+### Créer un repo
+POST http://localhost:3001/api/repos
+Content-Type : application/json
+
+{
+    "id": "BBBBBBBBBB",
+    "name": "new Repo",
+    "url": "http://New repo test",
+    "isPrivate": 2
+  }
+
+
+### Créer un repo avec donnée invalide
+POST http://localhost:3001/api/repos
+Content-Type : application/json
+
+{
+    "id": "DDDDDDDDDDDD",
+    "name": "Repo invalide",
+    "url": "http://repo invalide test",
+    "isPrivate": 10
+  
+}
+
+
+
+### Modifier un repo
+PUT http://localhost:3001/api/repos/BBBBBBBBBB
+Content-Type : application/json
+
+{
+    "id": "BBBBBBBBBB",
+    "name": "new Repo modifié",
+    "url": "http://New repo test",
+    "isPrivate": 2
+  }
+
+
+
+###  Supprimer un repo à partir de son id
+DELETE http://localhost:3001/api/repos/BBBBBBBBBB
