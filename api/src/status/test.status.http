@@ -1,0 +1,33 @@
+### Récupérer tous les status
+GET http://localhost:3001/api/status
+
+
+
+### Créer un status
+POST http://localhost:3001/api/status
+Content-Type : application/json
+
+{
+    "id" : 4,
+  "label": "status-Test" 
+}
+
+
+### Créer un status avec un id incorrect
+POST http://localhost:3001/api/status
+Content-Type : application/json
+
+{
+    "id" : "YYYYY",
+  "label": "status-Test" 
+}
+
+
+### Créer un status avec un label incorrecte
+POST http://localhost:3001/api/status
+Content-Type : application/json
+
+{
+    "id" : 4,
+  "label": 4 
+}

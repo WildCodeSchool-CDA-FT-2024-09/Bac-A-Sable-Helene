@@ -1,0 +1,37 @@
+### Récupérer toutes les langages
+GET http://localhost:3001/api/langs
+
+### Récupérer un langage
+GET http://localhost:3001/api/langs/2
+
+### Récupérer un langage inexistant
+GET http://localhost:3001/api/langs/15
+
+
+
+### Creer un langage
+POST http://localhost:3001/api/langs
+Content-Type : application/json
+
+{ 
+  "id": 10, 
+  "name": "Test-language"
+}
+
+### Creer un langage avec un erreur pour l'id
+POST http://localhost:3001/api/langs
+Content-Type : application/json
+
+{ 
+  "id": "hggdueoelssns", 
+  "name": 12
+}
+
+### Creer un langage avec un erreur pour le nom
+POST http://localhost:3001/api/langs
+Content-Type : application/json
+
+{ 
+  "id": 12, 
+  "name": 12
+}
