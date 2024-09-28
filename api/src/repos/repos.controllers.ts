@@ -24,14 +24,14 @@ const validateRepo = (req: Request, res: Response, nest : NextFunction) =>{
   }
 }
 
-repoControllers.get('/', (_: any, res: Response) => {
+repoControllers.get('/', (req: Request, res: Response) => {
   const { status } =  req.query;
   const result = status !== undefined ? myRepos.filter((repo: Repo) => repo.isPrivate === +status) : myRepos;
-  res.status(200).json(repos)
+  res.status(200).json(result)
 })
 
 repoControllers.get('/:id', (req: Request, res: Response) => {
-  const repo = repos.find(rep => rep.id === req.params.id) as Repo;
+  const repo = repos.find((rep: Repo) => rep.id === req.params.id) as Repo;
   if (repo) {
     res.status(200).json(repo)
   } else {
