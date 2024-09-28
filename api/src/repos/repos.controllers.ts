@@ -25,6 +25,8 @@ const validateRepo = (req: Request, res: Response, nest : NextFunction) =>{
 }
 
 repoControllers.get('/', (_: any, res: Response) => {
+  const { status } =  req.query;
+  const result = status !== undefined ? myRepos.filter((repo: Repo) => repo.isPrivate === +status) : myRepos;
   res.status(200).json(repos)
 })
 
