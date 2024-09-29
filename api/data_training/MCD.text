@@ -1,0 +1,24 @@
+### Modèle Conceptuel de Données (MCD)
+Entités :
+Film (Movies): id, title, releaseYear (Année de sortie) 
+
+Réalisateur (Directors): id, name
+
+Genre : id, name 
+
+Associations :
+Réalisé par (Directed by)
+Un film est réalisé par un réalisateur, et un réalisateur peut réaliser plusieurs films.
+Relation Film → Réalisateur : 1,n (Un réalisateur peut avoir plusieurs films, mais chaque film n'a qu'un seul réalisateur).
+
+Appartient à (Belongs to)
+Un film peut appartenir à un ou plusieurs genres, et un genre peut être attribué à plusieurs films.
+Relation Film → Genre : n,n (Un film peut avoir plusieurs genres, et un genre peut être attribué à plusieurs films).
+
+
+[Film] ----(1,n)--<Réalisé par>--(n,1)---- [Réalisateur]
+    |
+    |
+    (n,n)
+    |
+    |--<Appartient à>-- [Genre]

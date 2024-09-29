@@ -1,0 +1,30 @@
+[
+  {
+    "id": "G1",
+    "name": "Science Fiction"
+  },
+  {
+    "id": "G2",
+    "name": "Action"
+  },
+  {
+    "id": "G3",
+    "name": "Crime"
+  },
+  {
+    "id": "G4",
+    "name": "Drama"
+  },
+  {
+    "id": "G5",
+    "name": "Thriller"
+  },
+  {
+    "id": "G6",
+    "name": "Western"
+  },
+  {
+    "id": "G7",
+    "name": "Fantasy"
+  }
+]

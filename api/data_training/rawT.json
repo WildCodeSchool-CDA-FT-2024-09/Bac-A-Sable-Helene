@@ -1,0 +1,103 @@
+{
+  "movies": [
+    {
+      "id": "M1",
+      "title": "Inception",
+      "releaseYear": 2010,
+      "director": { "id": "D1", "name": "Christopher Nolan" },
+      "genres": [
+        { "id": "G1", "name": "Science Fiction" },
+        { "id": "G2", "name": "Action" }
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Pulp Fiction",
+      "releaseYear": 1994,
+      "director": { "id": "D2", "name": "Quentin Tarantino" },
+      "genres": [
+        { "id": "G3", "name": "Crime" },
+        { "id": "G4", "name": "Drama" }
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "The Matrix",
+      "releaseYear": 1999,
+      "director": { "id": "D3", "name": "The Wachowskis" },
+      "genres": [
+        { "id": "G1", "name": "Science Fiction" },
+        { "id": "G2", "name": "Action" }
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "The Dark Knight",
+      "releaseYear": 2008,
+      "director": { "id": "D1", "name": "Christopher Nolan" },
+      "genres": [
+        { "id": "G2", "name": "Action" },
+        { "id": "G4", "name": "Drama" }
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "The Godfather",
+      "releaseYear": 1972,
+      "director": { "id": "D4", "name": "Francis Ford Coppola" },
+      "genres": [
+        { "id": "G3", "name": "Crime" },
+        { "id": "G4", "name": "Drama" }
+      ]
+    },
+    {
+      "id": "M6",
+      "title": "Fight Club",
+      "releaseYear": 1999,
+      "director": { "id": "D5", "name": "David Fincher" },
+      "genres": [
+        { "id": "G4", "name": "Drama" },
+        { "id": "G5", "name": "Thriller" }
+      ]
+    },
+    {
+      "id": "M7",
+      "title": "Interstellar",
+      "releaseYear": 2014,
+      "director": { "id": "D1", "name": "Christopher Nolan" },
+      "genres": [
+        { "id": "G1", "name": "Science Fiction" },
+        { "id": "G4", "name": "Drama" }
+      ]
+    },
+    {
+      "id": "M8",
+      "title": "Django Unchained",
+      "releaseYear": 2012,
+      "director": { "id": "D2", "name": "Quentin Tarantino" },
+      "genres": [
+        { "id": "G3", "name": "Crime" },
+        { "id": "G6", "name": "Western" }
+      ]
+    },
+    {
+      "id": "M9",
+      "title": "The Social Network",
+      "releaseYear": 2010,
+      "director": { "id": "D5", "name": "David Fincher" },
+      "genres": [
+        { "id": "G4", "name": "Drama" }
+      ]
+    },
+    {
+      "id": "M10",
+      "title": "The Shawshank Redemption",
+      "releaseYear": 1994,
+      "director": { "id": "D6", "name": "Frank Darabont" },
+      "genres": [
+        { "id": "G4", "name": "Drama" },
+        { "id": "G7", "name": "Fantasy" }
+      ]
+    }
+  ]
+}

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fetch": "gh repo list Gadln --json  id,name,url,languages,isPrivate > ./data/raw.json",
     "create": "ts-node ./data/create.ts",
+    "createTr": "ts-node ./data_training/createT.ts",
     "dev": "ts-node-dev ./src/index.ts"
   },
   "author": "",

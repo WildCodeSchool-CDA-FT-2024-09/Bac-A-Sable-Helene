@@ -1,0 +1,40 @@
+Table: movies
+-------------------------
+| id | title | releaseYear | director_id |
+-------------------------
+
+Table: directors
+-------------------
+| id | name         |
+-------------------
+
+Table: genres
+-------------------
+| id | name         |
+-------------------
+
+Table: movieGenres
+------------------------
+| movie_id | genre_id  |
+------------------------
+
+
+2. Modèle Logique de Données (MLD)
+Tables :
+Movies: 
+  id : clé primaire
+  title : string 
+  releaseYear : intéger
+  director_id : clé étrangère référencée depuis directors.id
+
+Directors:
+  id : clé primaire
+  name : string
+  
+Genres: 
+  id : clé primaire
+  name : string
+
+MovieGenres:    
+  movie_id : clé étrangère référencée depuis movies.id
+  genre_id : clé étrangère référencée depuis genres.id

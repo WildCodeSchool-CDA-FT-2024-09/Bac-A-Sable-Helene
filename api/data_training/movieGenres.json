@@ -1,0 +1,78 @@
+[
+  {
+    "movie_id": "M1",
+    "genre_id": "G1"
+  },
+  {
+    "movie_id": "M1",
+    "genre_id": "G2"
+  },
+  {
+    "movie_id": "M2",
+    "genre_id": "G3"
+  },
+  {
+    "movie_id": "M2",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M3",
+    "genre_id": "G1"
+  },
+  {
+    "movie_id": "M3",
+    "genre_id": "G2"
+  },
+  {
+    "movie_id": "M4",
+    "genre_id": "G2"
+  },
+  {
+    "movie_id": "M4",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M5",
+    "genre_id": "G3"
+  },
+  {
+    "movie_id": "M5",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M6",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M6",
+    "genre_id": "G5"
+  },
+  {
+    "movie_id": "M7",
+    "genre_id": "G1"
+  },
+  {
+    "movie_id": "M7",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M8",
+    "genre_id": "G3"
+  },
+  {
+    "movie_id": "M8",
+    "genre_id": "G6"
+  },
+  {
+    "movie_id": "M9",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M10",
+    "genre_id": "G4"
+  },
+  {
+    "movie_id": "M10",
+    "genre_id": "G7"
+  }
+]
