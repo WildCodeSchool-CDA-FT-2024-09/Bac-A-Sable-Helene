@@ -2,7 +2,7 @@ import "reflect-metadata";
 import express from 'express';
 import router from './router';
 import dotenv from 'dotenv';
-import { dataSource } from "./db";
+import { dataSource } from "./db/client";
 
 dotenv.config();
 

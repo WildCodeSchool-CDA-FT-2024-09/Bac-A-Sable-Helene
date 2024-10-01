@@ -1,22 +1,30 @@
 import "reflect-metadata";
+import { Min, Max, IsString } from "class-validator";
+import { Status } from "../status/status.entities";
 import {
   BaseEntity,
   Column, Entity,
-  PrimaryGeneratedColumn
+  PrimaryColumn,
+  ManyToOne
 } from "typeorm";
 
 @Entity()
 export class Repo extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn()
+  @IsString()
   id : string;
 
   @Column()
+  @IsString()
   name : string;
 
   @Column()
+  @IsString()
   url : string;
 
-  @Column()
-  isPrivate : number;
+  @ManyToOne(() => Status, status => status.id)
+  @Min(1)
+  @Max(2)
+  status : Status;
 
   }

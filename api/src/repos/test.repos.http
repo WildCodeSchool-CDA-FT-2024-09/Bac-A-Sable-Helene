@@ -1,4 +1,4 @@
-### Récupérer tous les repos
+### Récupérer tous les repos Rep
 GET http://localhost:3001/api/repos
 
 ### Récupérer un repo
@@ -15,8 +15,8 @@ POST http://localhost:3001/api/repos
 Content-Type : application/json
 
 {
-    "id": "BBBBBBBBBB",
-    "name": "new Repo",
+    "id": "CCCCCCCCCC",
+    "name": "second Repo",
     "url": "http://New repo test",
     "isPrivate": 2
   }
@@ -42,7 +42,7 @@ Content-Type : application/json
 
 {
     "id": "BBBBBBBBBB",
-    "name": "new Repo modifié",
+    "name": "second  Repo",
     "url": "http://New repo test",
     "isPrivate": 2
   }
