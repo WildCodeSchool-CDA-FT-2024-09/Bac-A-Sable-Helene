@@ -4,21 +4,6 @@ import { validate } from "class-validator";
 
 const langsControllers = express.Router();
 
-// // const schema = Joi.object({
-// //   id: Joi.number().required(),
-// //   name: Joi.string().required()
-// // })
-
-// // const validateLang = (req: Request, res:Response, next: NextFunction) => {
-// //   const { error } = schema.validate(req.body)
-// //   if (error == null) {
-// //     next()
-// //   } else {
-// //     res.status(422).json(error)
-// //   }
-// // }
-
-
 langsControllers.get('/', async (_: any, res: Response) => {
   try {
     const langs = await Lang.find({
@@ -43,7 +28,6 @@ langsControllers.get('/', async (_: any, res: Response) => {
 // )
 
 langsControllers.post('/', async (req: Request, res: Response)=> {
-  // langs.push(req.body)
   try {
     const lang = new Lang();
     lang.name = req.body.name;

@@ -2,7 +2,6 @@ import express, { Request, Response } from "express";
 import { Repo } from "./repo.entities";
 import { Status } from "../status/status.entities";
 import { Lang } from "../langs/lang.entities";
-//import { validate } from "class-validator";
 
 const repoControllers = express.Router();
 
@@ -70,12 +69,6 @@ repoControllers.get('/', async (_: any, res: Response) => {
   }
 
  })
-
-// // repoControllers.delete('/:id', (req: Request, res: Response) => {
-// //   //console.log(req.params.id);
-// //   myRepos = myRepos.filter((repo: Repo) => repo.id !== req.params.id)
-// //   res.sendStatus(204)
-// // })
 
 repoControllers.delete('/:id',  async (req: Request, res: Response) => {
   try {
