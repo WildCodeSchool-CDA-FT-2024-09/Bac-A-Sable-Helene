@@ -23,7 +23,7 @@ export class Repo extends BaseEntity {
   @IsString()
   url : string;
 
-  @ManyToOne(() => Status, status => status.id)
+  @ManyToOne(() => Status, status => status.id, {cascade: true})
   @Min(1)
   @Max(2)
   status : Status;

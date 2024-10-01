@@ -15,11 +15,11 @@ POST http://localhost:3001/api/repos
 Content-Type : application/json
 
 {
-    "id": "HH",
-    "name": "test 2  Repo H",
+    "id": "XXX",
+    "name": "test Repo X",
     "url": "http://New repo test",
-    "isPrivate": 1,
-    "langIds" : [1, 2, 3, 4]
+    "isPrivate": 2,
+    "langIds" : [3, 4]
   }
 
 
@@ -54,4 +54,4 @@ Content-Type : application/json
 
 
 ###  Supprimer un repo à partir de son id
-DELETE http://localhost:3001/api/repos/BBBBBBBBBB
+DELETE http://localhost:3001/api/repos/XXX

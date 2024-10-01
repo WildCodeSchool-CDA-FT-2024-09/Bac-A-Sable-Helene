@@ -63,16 +63,13 @@ langsControllers.delete('/:id',  async (req: Request, res: Response) => {
     if (isNaN(langId)) {
       return res.status(400).json({ message: 'Invalid ID format' });
     }
-    console.log(`Recherche de la langue avec l'ID : ${langId}`);
 
     // Vérifie d'abord si l'élément existe
     const lang = await Lang.findOne({ where: { id: langId } });
     if (!lang) {
-      console.log(`Langue avec l'ID ${langId} non trouvée`);
       return res.status(404).json({ message: `Lang with id ${langId} not found` });
     }
 
-    console.log(`Suppression de la langue avec l'ID : ${langId}`);
     await Lang.delete(langId);
 
     return res.sendStatus(204);

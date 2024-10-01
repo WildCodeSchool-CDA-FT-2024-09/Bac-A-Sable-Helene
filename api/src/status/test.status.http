@@ -30,3 +30,6 @@ Content-Type : application/json
     "id" : 4,
   "label": 4 
 }
+
+### Supprimer un statut
+DELETE http://localhost:3001/api/status/3

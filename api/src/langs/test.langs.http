@@ -27,4 +27,4 @@ Content-Type : application/json
 }
 
 ### Supprimer une langue
-DELETE http://localhost:3001/api/langs/6
+DELETE http://localhost:3001/api/langs/11

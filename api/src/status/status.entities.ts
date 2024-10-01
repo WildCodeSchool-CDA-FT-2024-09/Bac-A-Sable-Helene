@@ -11,7 +11,7 @@ import {
 @Entity()
 export class Status extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id : string;
+  id : number;
 
   @Column()
   @IsString()

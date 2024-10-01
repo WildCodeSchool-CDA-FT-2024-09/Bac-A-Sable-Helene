@@ -38,6 +38,9 @@ repoControllers.get('/', async (_: any, res: Response) => {
     repo.url = req.body.url;
 
     const status = await Status.findOneOrFail({ where : { id: req.body.isPrivate}})
+    if (!status) {
+      return res.status(404).json({ message: `Status with id ${req.body.isPrivate} not found` });
+    }
     repo.status = status;
 
     const languageIds: number[] = req.body.langIds;
@@ -73,6 +76,30 @@ repoControllers.get('/', async (_: any, res: Response) => {
 // //   myRepos = myRepos.filter((repo: Repo) => repo.id !== req.params.id)
 // //   res.sendStatus(204)
 // // })
+
+repoControllers.delete('/:id',  async (req: Request, res: Response) => {
+  try {
+    const repoId = req.params.id;
+
+    if (!repoId) {
+      return res.status(400).json({ message: 'Invalid ID format' });
+    }
+
+    // Vérifie d'abord si l'élément existe
+    const repo = await Repo.findOne({ where: { id: repoId } });
+    if (!repo) {
+      return res.status(404).json({ message: `Repo with id ${repoId} not found` });
+    }
+
+    await Repo.delete(repoId);
+
+    return res.sendStatus(204);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+
+ })
 
 
 // // repoControllers.put('/:id', (req: Request, res: Response)=> {
