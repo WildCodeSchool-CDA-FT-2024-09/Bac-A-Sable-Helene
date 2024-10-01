@@ -1,11 +1,12 @@
 import "reflect-metadata";
 import { Min, Max, IsString } from "class-validator";
 import { Status } from "../status/status.entities";
+import { Lang } from "../langs/lang.entities";
 import {
   BaseEntity,
   Column, Entity,
   PrimaryColumn,
-  ManyToOne
+  ManyToOne, ManyToMany, JoinTable
 } from "typeorm";
 
 @Entity()
@@ -26,5 +27,9 @@ export class Repo extends BaseEntity {
   @Min(1)
   @Max(2)
   status : Status;
+
+  @ManyToMany(()=> Lang, (lang)=> lang.repos, {cascade: true})
+  @JoinTable()
+  languages: Lang[]
 
   }

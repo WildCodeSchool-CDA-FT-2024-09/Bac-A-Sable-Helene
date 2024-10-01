@@ -1,38 +1,17 @@
 import express, { Request, Response } from "express";
-//import repos from '../../data/repos.json';
 import { Repo } from "./repo.entities";
 import { Status } from "../status/status.entities";
+import { Lang } from "../langs/lang.entities";
 //import { validate } from "class-validator";
-//import Joi from "joi";
 
 const repoControllers = express.Router();
 
-//let myRepos : Array<Repo> = repos;
-
-// // const schema = Joi.object({
-// //   id: Joi.string().required(),
-// //   name: Joi.string().required(),
-// //   url: Joi.string().required(),
-// //   isPrivate: Joi.number().min(1).max(2).required()
-// // })
-
-
-// // const validateRepo = (req: Request, res: Response, nest : NextFunction) =>{
-// //   const { error } = schema.validate(req.body)
-// //   if (error == null){
-// //     nest()
-// //   }else {
-// //     res.status(422).json(error) // info sur l'erreur
-// //   }//
-// // }
-
 repoControllers.get('/', async (_: any, res: Response) => {
-  // // const { status } =  req.query;
-  // // const result = status !== undefined ? myRepos.filter((repo: Repo) => repo.isPrivate === +status) : myRepos;
   try {
     const repos = await Repo.find( {
       relations : {
-        status: true
+        status: true,
+        languages: true
       }
     });
     res.status(200).json(repos)
@@ -52,8 +31,6 @@ repoControllers.get('/', async (_: any, res: Response) => {
 // // })
 
  repoControllers.post('/', async (req: Request, res: Response) => {
-// //    repos.push(req.body)
-// //   res.status(201).json(req.body)
   try {
     const repo = new Repo();
     repo.id = req.body.id;
@@ -63,11 +40,25 @@ repoControllers.get('/', async (_: any, res: Response) => {
     const status = await Status.findOneOrFail({ where : { id: req.body.isPrivate}})
     repo.status = status;
 
+    const languageIds: number[] = req.body.langIds;
+    const languages: Lang[]= [];
+
+    for(const langId of languageIds) {
+      let lang = await Lang.findOne({ where: { id: langId}});
+      
+      if (!lang) {
+       return res.status(404).json({message: `Lang with id ${langId} not found`})
+      }
+      languages.push(lang);
+    }
+
+    repo.languages = languages;
+   
     await repo.save();
-    res.status(201).json(repo)
+    return res.status(201).json(repo)
     
   } catch  (error) {
-  res.sendStatus(500)
+    return res.sendStatus(500)
   }
 
  })

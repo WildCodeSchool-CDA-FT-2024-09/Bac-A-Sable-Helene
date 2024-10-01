@@ -8,8 +8,8 @@ POST http://localhost:3001/api/status
 Content-Type : application/json
 
 {
-    "id" : 4,
-  "label": "status-Test" 
+    "id" : 2,
+  "label": "Public" 
 }
 
 

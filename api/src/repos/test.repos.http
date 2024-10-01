@@ -15,10 +15,11 @@ POST http://localhost:3001/api/repos
 Content-Type : application/json
 
 {
-    "id": "CCCCCCCCCC",
-    "name": "second Repo",
+    "id": "EEEEEE",
+    "name": "second  Repo",
     "url": "http://New repo test",
-    "isPrivate": 2
+    "isPrivate": 2,
+    "languages" : ["JS", "TypeScript", "React"]
   }
 
 
@@ -41,10 +42,11 @@ PUT http://localhost:3001/api/repos/BBBBBBBBBB
 Content-Type : application/json
 
 {
-    "id": "BBBBBBBBBB",
+    "id": "DDDDDDDDDDDD",
     "name": "second  Repo",
     "url": "http://New repo test",
-    "isPrivate": 2
+    "isPrivate": 2,
+    "languages" : ["JS", "TypeScript", "React"]
   }
 
 

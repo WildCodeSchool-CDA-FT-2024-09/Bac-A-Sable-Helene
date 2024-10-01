@@ -1,32 +1,31 @@
-import express, { Request, Response, NextFunction } from "express";
-import status from '../../data/status.json';
-import Joi from "joi";
-
+import express, { Request, Response } from "express";
+import { Status } from "./status.entities";
 const statusControllers = express.Router();
 
-const schema = Joi.object({
-  id: Joi.number().required(),
-  label: Joi.string().required(),
-})
-
-
-const validateStatus = (req: Request, res: Response, next: NextFunction)=> {
-  const { error } = schema.validate(req.body)
-  if (error == null) {
-    next()
-  }else {
-    res.status(422).json(error)
+statusControllers.get('/', async (_, res: Response) => {
+  try {
+    const status = await Status.find( {
+      relations : {
+        repos: true
+      }
+    });
+    res.status(200).json(status)
+  } catch (error) {
+    res.sendStatus(500)
   }
-}
-
-
-statusControllers.get('/', (_, res: Response) => {
-  res.status(200).json(status)
 })
 
-statusControllers.post('/', validateStatus, (req: Request, res: Response) => {
-  status.push(req.body)
-  res.status(201).json(req.body)
+statusControllers.post('/',async  (req: Request, res: Response) => {
+  try {
+    const status = new Status();
+    status.label = req.body.label;
+
+    await status.save();
+    res.status(201).json(status)
+    
+  } catch  (error) {
+  res.sendStatus(500)
+  }
 })
 
 export default statusControllers;
