@@ -1,5 +1,6 @@
 import "reflect-metadata";
-import { Repo } from "../repos/repo.entities"
+import { Repo } from "../repos/repo.entities";
+import { IsString } from "class-validator";
 import {
   BaseEntity,
   Column, Entity,
@@ -13,6 +14,7 @@ export class Status extends BaseEntity {
   id : string;
 
   @Column()
+  @IsString()
   label : string;
 
  @OneToMany(() => Repo , repo => repo.status)

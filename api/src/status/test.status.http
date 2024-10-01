@@ -8,18 +8,17 @@ POST http://localhost:3001/api/status
 Content-Type : application/json
 
 {
-    "id" : 2,
-  "label": "Public" 
+    "id" : 3,
+  "label": "Inconnu" 
 }
 
 
-### Créer un status avec un id incorrect
+### Créer un status avec un label incorrect (pas une string)
 POST http://localhost:3001/api/status
 Content-Type : application/json
 
 {
-    "id" : "YYYYY",
-  "label": "status-Test" 
+  "label": 5 
 }
 
 

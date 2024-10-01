@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { Status } from "./status.entities";
 const statusControllers = express.Router();
+import { validate } from "class-validator";
 
 statusControllers.get('/', async (_, res: Response) => {
   try {
@@ -20,9 +21,13 @@ statusControllers.post('/',async  (req: Request, res: Response) => {
     const status = new Status();
     status.label = req.body.label;
 
+    const error = await validate(status)
+    if (error.length > 0) {
+      res.status(422).json(error)
+    } else {
     await status.save();
     res.status(201).json(status)
-    
+    }
   } catch  (error) {
   res.sendStatus(500)
   }

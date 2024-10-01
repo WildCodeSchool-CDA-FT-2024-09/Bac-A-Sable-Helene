@@ -15,11 +15,11 @@ POST http://localhost:3001/api/repos
 Content-Type : application/json
 
 {
-    "id": "EEEEEE",
-    "name": "second  Repo",
+    "id": "HH",
+    "name": "test 2  Repo H",
     "url": "http://New repo test",
-    "isPrivate": 2,
-    "languages" : ["JS", "TypeScript", "React"]
+    "isPrivate": 1,
+    "langIds" : [1, 2, 3, 4]
   }
 
 
@@ -28,10 +28,12 @@ POST http://localhost:3001/api/repos
 Content-Type : application/json
 
 {
-    "id": "DDDDDDDDDDDD",
+    "id": "K",
     "name": "Repo invalide",
-    "url": "http://repo invalide test",
-    "isPrivate": 10
+    "url": "repo invalide test",
+    "isPrivate": 2,
+    "langIds" : [ 2, 3, 4, 5]
+
   
 }
 

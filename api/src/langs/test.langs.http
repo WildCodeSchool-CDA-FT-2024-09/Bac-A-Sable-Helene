@@ -14,8 +14,7 @@ POST http://localhost:3001/api/langs
 Content-Type : application/json
 
 { 
-  
-  "name": "TypeScript"
+  "name": "PHP"
 }
 
 
@@ -26,3 +25,6 @@ Content-Type : application/json
 { 
   "name": 12
 }
+
+### Supprimer une langue
+DELETE http://localhost:3001/api/langs/6

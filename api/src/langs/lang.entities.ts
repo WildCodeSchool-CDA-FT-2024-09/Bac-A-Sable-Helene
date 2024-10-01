@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { Repo } from '../repos/repo.entities';
-import { IsString, IsNumber } from "class-validator";
+import { IsString } from "class-validator";
 
 import {
   BaseEntity,
@@ -12,14 +12,13 @@ import {
 @Entity()
 export class Lang extends BaseEntity {
   @PrimaryGeneratedColumn()
-  @IsNumber()
   id : number;
 
   @Column()
   @IsString()
   name : string;
 
-  @ManyToMany(() => Repo, (repo) => repo.languages)
+  @ManyToMany(() => Repo, (repo) => repo.languages, { onDelete: "CASCADE" })
   repos: Repo[]
 
   }

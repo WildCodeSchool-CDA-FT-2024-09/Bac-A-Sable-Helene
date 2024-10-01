@@ -53,10 +53,15 @@ repoControllers.get('/', async (_: any, res: Response) => {
     }
 
     repo.languages = languages;
-   
+
+    //const error = await validate(repo)
+    // if (error.length > 0) {
+    //   return res.status(422).json(error)
+    // } else {
+
     await repo.save();
     return res.status(201).json(repo)
-    
+    //}
   } catch  (error) {
     return res.sendStatus(500)
   }
