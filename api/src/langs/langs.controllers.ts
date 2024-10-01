@@ -21,7 +21,11 @@ const langsControllers = express.Router();
 
 langsControllers.get('/', async (_: any, res: Response) => {
   try {
-    const langs = await Lang.find();
+    const langs = await Lang.find({
+      relations : {
+        repos: true
+      }
+    });
   res.status(200).json(langs)
 } catch (error) {
   res.sendStatus(500)
