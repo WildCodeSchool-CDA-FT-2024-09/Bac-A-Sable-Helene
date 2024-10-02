@@ -1,4 +1,6 @@
 import { dataSource } from "./client";
+import { Lang } from "../langs/lang.entities";
+import langs from "../../data/langs.json";
 
 (async() => {
   await dataSource.initialize();
@@ -12,6 +14,18 @@ import { dataSource } from "./client";
     await queryRunner.query('DELETE FROM repo');
     await queryRunner.query('DELETE FROM status');
     await queryRunner.query('DELETE FROM sqlite_sequence WHERE name="status" OR name="lang"');
+
+    const savedlangs = await Promise.all(
+      langs.map(async (el) => {
+        const lang = new Lang();
+        lang.name = el.name;
+
+        return await lang.save();
+      })
+    )
+    console.log(savedlangs)
+
+
     await queryRunner.commitTransaction();
 
   } catch (error) {
