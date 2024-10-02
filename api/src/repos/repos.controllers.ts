@@ -36,10 +36,8 @@ repoControllers.get('/', async (_: any, res: Response) => {
     repo.name = req.body.name;
     repo.url = req.body.url;
 
+    //findOneOrFail pour chercher un id mais éjecte une erreur si ne trouve pas l'id
     const status = await Status.findOneOrFail({ where : { id: req.body.isPrivate}})
-    if (!status) {
-      return res.status(404).json({ message: `Status with id ${req.body.isPrivate} not found` });
-    }
     repo.status = status;
 
     const languageIds: number[] = req.body.langIds;

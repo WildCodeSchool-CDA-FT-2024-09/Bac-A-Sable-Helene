@@ -13,4 +13,5 @@ export const dataSource = new DataSource ({
   database: `${BACKEND_FILE}`,
   entities: [Repo, Status, Lang],
   synchronize: true,
+  logging: true
 });

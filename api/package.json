@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fetch": "gh repo list Gadln --json  id,name,url,languages,isPrivate > ./data/raw.json",
     "create": "ts-node ./data/create.ts",
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "seed": "ts-node-dev ./src/db/seed.ts"
   },
   "author": "",
   "license": "ISC",

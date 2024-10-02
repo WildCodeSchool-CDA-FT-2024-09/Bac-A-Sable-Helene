@@ -15,11 +15,11 @@ POST http://localhost:3001/api/repos
 Content-Type : application/json
 
 {
-    "id": "XXX",
-    "name": "test Repo X",
+    "id": "D",
+    "name": "test Repo D",
     "url": "http://New repo test",
-    "isPrivate": 2,
-    "langIds" : [3, 4]
+    "isPrivate": 1,
+    "langIds" : [1, 5]
   }
 
 

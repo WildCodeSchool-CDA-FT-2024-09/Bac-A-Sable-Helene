@@ -18,7 +18,7 @@ export class Lang extends BaseEntity {
   @IsString()
   name : string;
 
-  @ManyToMany(() => Repo, (repo) => repo.languages, { onDelete: "CASCADE" })
-  repos: Repo[]
+  @ManyToMany(() => Repo, (repo) => repo.languages, { onDelete: "CASCADE" }) // repo.languages cad va chercher les langages pour un repo
+  repos?: Repo[]
 
   }
