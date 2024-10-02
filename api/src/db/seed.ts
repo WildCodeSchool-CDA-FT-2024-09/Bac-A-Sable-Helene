@@ -1,6 +1,10 @@
 import { dataSource } from "./client";
+
 import { Lang } from "../langs/lang.entities";
 import langs from "../../data/langs.json";
+
+import { Status } from "../status/status.entities";
+import status from "../../data/status.json";
 
 (async() => {
   await dataSource.initialize();
@@ -25,6 +29,16 @@ import langs from "../../data/langs.json";
     )
     console.log(savedlangs)
 
+    const savedStatus = await Promise.all(
+      status.map(async (el) => {
+        const status = new Status();
+        status.label = el.name;
+
+        return await status.save();
+      })
+    )
+
+    console.log(savedStatus)
 
     await queryRunner.commitTransaction();
 
