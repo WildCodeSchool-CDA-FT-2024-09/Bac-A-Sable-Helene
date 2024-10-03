@@ -3,9 +3,24 @@
     "id": "R_kgDOM2SnhA",
     "isPrivate": false,
     "languages": [
-      { "size": 3356, "node": { "name": "HTML" } },
-      { "size": 4696, "node": { "name": "JavaScript" } },
-      { "size": 3297, "node": { "name": "CSS" } }
+      {
+        "size": 3356,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 4696,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 3297,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "Speed-memo",
     "url": "https://github.com/jujuck/Speed-memo"
@@ -13,7 +28,14 @@
   {
     "id": "MDEwOlJlcG9zaXRvcnk0MDQ2NDIxODM=",
     "isPrivate": false,
-    "languages": [{ "size": 29170, "node": { "name": "HTML" } }],
+    "languages": [
+      {
+        "size": 29170,
+        "node": {
+          "name": "HTML"
+        }
+      }
+    ],
     "name": "WildCodeSchool",
     "url": "https://github.com/jujuck/WildCodeSchool"
   },
@@ -21,9 +43,24 @@
     "id": "R_kgDOMxIC4w",
     "isPrivate": false,
     "languages": [
-      { "size": 98, "node": { "name": "Dockerfile" } },
-      { "size": 10323, "node": { "name": "TypeScript" } },
-      { "size": 1666, "node": { "name": "JavaScript" } }
+      {
+        "size": 98,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 10323,
+        "node": {
+          "name": "TypeScript"
+        }
+      },
+      {
+        "size": 1666,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "Pr-pa_CDA",
     "url": "https://github.com/jujuck/Pr-pa_CDA"
@@ -31,7 +68,14 @@
   {
     "id": "MDEwOlJlcG9zaXRvcnkxMzEyODY4NjE=",
     "isPrivate": false,
-    "languages": [{ "size": 28948, "node": { "name": "HTML" } }],
+    "languages": [
+      {
+        "size": 28948,
+        "node": {
+          "name": "HTML"
+        }
+      }
+    ],
     "name": "dashboard",
     "url": "https://github.com/jujuck/dashboard"
   },
@@ -39,9 +83,24 @@
     "id": "R_kgDOHYeHcg",
     "isPrivate": true,
     "languages": [
-      { "size": 609, "node": { "name": "HTML" } },
-      { "size": 1300, "node": { "name": "CSS" } },
-      { "size": 10787, "node": { "name": "JavaScript" } }
+      {
+        "size": 609,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 1300,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 10787,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "Workshop_search",
     "url": "https://github.com/jujuck/Workshop_search"
@@ -50,11 +109,36 @@
     "id": "R_kgDOMfj1iA",
     "isPrivate": false,
     "languages": [
-      { "size": 730, "node": { "name": "Shell" } },
-      { "size": 744, "node": { "name": "Dockerfile" } },
-      { "size": 350, "node": { "name": "HTML" } },
-      { "size": 2413, "node": { "name": "CSS" } },
-      { "size": 41669, "node": { "name": "JavaScript" } }
+      {
+        "size": 730,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 744,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 350,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2413,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 41669,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "Full_Harmonia",
     "url": "https://github.com/jujuck/Full_Harmonia"
@@ -62,7 +146,14 @@
   {
     "id": "R_kgDOMealvQ",
     "isPrivate": false,
-    "languages": [{ "size": 4856, "node": { "name": "JavaScript" } }],
+    "languages": [
+      {
+        "size": 4856,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
+    ],
     "name": "prepa_DWWM_react",
     "url": "https://github.com/jujuck/prepa_DWWM_react"
   },
@@ -70,11 +161,36 @@
     "id": "R_kgDOMa6Hfg",
     "isPrivate": true,
     "languages": [
-      { "size": 558, "node": { "name": "Shell" } },
-      { "size": 360, "node": { "name": "HTML" } },
-      { "size": 2133, "node": { "name": "CSS" } },
-      { "size": 26616, "node": { "name": "TypeScript" } },
-      { "size": 124, "node": { "name": "JavaScript" } }
+      {
+        "size": 558,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 360,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2133,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 26616,
+        "node": {
+          "name": "TypeScript"
+        }
+      },
+      {
+        "size": 124,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "BootcampStressScore",
     "url": "https://github.com/jujuck/BootcampStressScore"
@@ -83,10 +199,30 @@
     "id": "R_kgDOMUhwCw",
     "isPrivate": false,
     "languages": [
-      { "size": 550, "node": { "name": "Shell" } },
-      { "size": 367, "node": { "name": "HTML" } },
-      { "size": 826, "node": { "name": "CSS" } },
-      { "size": 22581, "node": { "name": "JavaScript" } }
+      {
+        "size": 550,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 367,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 826,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 22581,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "Memo_Post",
     "url": "https://github.com/jujuck/Memo_Post"
@@ -95,11 +231,36 @@
     "id": "R_kgDOMVAT3g",
     "isPrivate": false,
     "languages": [
-      { "size": 730, "node": { "name": "Shell" } },
-      { "size": 744, "node": { "name": "Dockerfile" } },
-      { "size": 350, "node": { "name": "HTML" } },
-      { "size": 2413, "node": { "name": "CSS" } },
-      { "size": 41856, "node": { "name": "JavaScript" } }
+      {
+        "size": 730,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 744,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 350,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2413,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 41856,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "Workshop-upload-config",
     "url": "https://github.com/jujuck/Workshop-upload-config"
@@ -108,11 +269,36 @@
     "id": "R_kgDOMT4Pfw",
     "isPrivate": false,
     "languages": [
-      { "size": 730, "node": { "name": "Shell" } },
-      { "size": 744, "node": { "name": "Dockerfile" } },
-      { "size": 350, "node": { "name": "HTML" } },
-      { "size": 207, "node": { "name": "CSS" } },
-      { "size": 49927, "node": { "name": "JavaScript" } }
+      {
+        "size": 730,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 744,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 350,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 207,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 49927,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "workshop-auth-2024",
     "url": "https://github.com/jujuck/workshop-auth-2024"
@@ -121,10 +307,30 @@
     "id": "R_kgDOMR2Frw",
     "isPrivate": false,
     "languages": [
-      { "size": 560, "node": { "name": "Shell" } },
-      { "size": 355, "node": { "name": "HTML" } },
-      { "size": 172, "node": { "name": "CSS" } },
-      { "size": 18289, "node": { "name": "JavaScript" } }
+      {
+        "size": 560,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 355,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 172,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 18289,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "Memo_GetAll",
     "url": "https://github.com/jujuck/Memo_GetAll"
@@ -133,11 +339,36 @@
     "id": "R_kgDOMKdZNQ",
     "isPrivate": false,
     "languages": [
-      { "size": 730, "node": { "name": "Shell" } },
-      { "size": 744, "node": { "name": "Dockerfile" } },
-      { "size": 350, "node": { "name": "HTML" } },
-      { "size": 2413, "node": { "name": "CSS" } },
-      { "size": 23652, "node": { "name": "JavaScript" } }
+      {
+        "size": 730,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 744,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 350,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2413,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 23652,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "books_list-Fullstack",
     "url": "https://github.com/jujuck/books_list-Fullstack"
@@ -146,11 +377,36 @@
     "id": "R_kgDOMIADCw",
     "isPrivate": false,
     "languages": [
-      { "size": 730, "node": { "name": "Shell" } },
-      { "size": 744, "node": { "name": "Dockerfile" } },
-      { "size": 350, "node": { "name": "HTML" } },
-      { "size": 2413, "node": { "name": "CSS" } },
-      { "size": 23652, "node": { "name": "JavaScript" } }
+      {
+        "size": 730,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 744,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 350,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2413,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 23652,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "fullstack_template_wild_no_models",
     "url": "https://github.com/jujuck/fullstack_template_wild_no_models"
@@ -159,9 +415,24 @@
     "id": "R_kgDOMIgEsA",
     "isPrivate": true,
     "languages": [
-      { "size": 612, "node": { "name": "HTML" } },
-      { "size": 2844, "node": { "name": "Vue" } },
-      { "size": 2242, "node": { "name": "TypeScript" } }
+      {
+        "size": 612,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2844,
+        "node": {
+          "name": "Vue"
+        }
+      },
+      {
+        "size": 2242,
+        "node": {
+          "name": "TypeScript"
+        }
+      }
     ],
     "name": "gists_search",
     "url": "https://github.com/jujuck/gists_search"
@@ -170,9 +441,24 @@
     "id": "R_kgDOJxNW6g",
     "isPrivate": false,
     "languages": [
-      { "size": 18035, "node": { "name": "JavaScript" } },
-      { "size": 566, "node": { "name": "HTML" } },
-      { "size": 184, "node": { "name": "CSS" } }
+      {
+        "size": 18035,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 566,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 184,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "Wilders-React-parallax",
     "url": "https://github.com/jujuck/Wilders-React-parallax"
@@ -181,9 +467,24 @@
     "id": "R_kgDOMHS11A",
     "isPrivate": false,
     "languages": [
-      { "size": 5738, "node": { "name": "JavaScript" } },
-      { "size": 367, "node": { "name": "HTML" } },
-      { "size": 997, "node": { "name": "CSS" } }
+      {
+        "size": 5738,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 367,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 997,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "React_Redux_Management",
     "url": "https://github.com/jujuck/React_Redux_Management"
@@ -192,11 +493,36 @@
     "id": "R_kgDOL87Jzg",
     "isPrivate": false,
     "languages": [
-      { "size": 730, "node": { "name": "Shell" } },
-      { "size": 744, "node": { "name": "Dockerfile" } },
-      { "size": 355, "node": { "name": "HTML" } },
-      { "size": 355, "node": { "name": "CSS" } },
-      { "size": 39350, "node": { "name": "JavaScript" } }
+      {
+        "size": 730,
+        "node": {
+          "name": "Shell"
+        }
+      },
+      {
+        "size": 744,
+        "node": {
+          "name": "Dockerfile"
+        }
+      },
+      {
+        "size": 355,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 355,
+        "node": {
+          "name": "CSS"
+        }
+      },
+      {
+        "size": 39350,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
     ],
     "name": "burger-palace",
     "url": "https://github.com/jujuck/burger-palace"
@@ -205,9 +531,24 @@
     "id": "R_kgDOMFRqSw",
     "isPrivate": false,
     "languages": [
-      { "size": 4726, "node": { "name": "JavaScript" } },
-      { "size": 361, "node": { "name": "HTML" } },
-      { "size": 1224, "node": { "name": "CSS" } }
+      {
+        "size": 4726,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 361,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 1224,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "json-server-react",
     "url": "https://github.com/jujuck/json-server-react"
@@ -216,9 +557,24 @@
     "id": "R_kgDOMBtUVg",
     "isPrivate": false,
     "languages": [
-      { "size": 5131, "node": { "name": "JavaScript" } },
-      { "size": 606, "node": { "name": "HTML" } },
-      { "size": 63, "node": { "name": "CSS" } }
+      {
+        "size": 5131,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 606,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 63,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "Context-Nantes-Events",
     "url": "https://github.com/jujuck/Context-Nantes-Events"
@@ -233,7 +589,14 @@
   {
     "id": "R_kgDOLuUQEw",
     "isPrivate": false,
-    "languages": [{ "size": 3245, "node": { "name": "HTML" } }],
+    "languages": [
+      {
+        "size": 3245,
+        "node": {
+          "name": "HTML"
+        }
+      }
+    ],
     "name": "api",
     "url": "https://github.com/jujuck/api"
   },
@@ -241,9 +604,24 @@
     "id": "R_kgDOL7eu2A",
     "isPrivate": false,
     "languages": [
-      { "size": 2709, "node": { "name": "JavaScript" } },
-      { "size": 361, "node": { "name": "HTML" } },
-      { "size": 129, "node": { "name": "CSS" } }
+      {
+        "size": 2709,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 361,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 129,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "soutien-React",
     "url": "https://github.com/jujuck/soutien-React"
@@ -251,7 +629,14 @@
   {
     "id": "R_kgDOL7ZaWg",
     "isPrivate": false,
-    "languages": [{ "size": 5818, "node": { "name": "JavaScript" } }],
+    "languages": [
+      {
+        "size": 5818,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
+    ],
     "name": "airport-api",
     "url": "https://github.com/jujuck/airport-api"
   },
@@ -259,9 +644,24 @@
     "id": "R_kgDOL2rD-A",
     "isPrivate": false,
     "languages": [
-      { "size": 3715, "node": { "name": "JavaScript" } },
-      { "size": 361, "node": { "name": "HTML" } },
-      { "size": 236, "node": { "name": "CSS" } }
+      {
+        "size": 3715,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 361,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 236,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "React-Open-weather",
     "url": "https://github.com/jujuck/React-Open-weather"
@@ -269,7 +669,14 @@
   {
     "id": "R_kgDOL2FkZQ",
     "isPrivate": true,
-    "languages": [{ "size": 18028, "node": { "name": "JavaScript" } }],
+    "languages": [
+      {
+        "size": 18028,
+        "node": {
+          "name": "JavaScript"
+        }
+      }
+    ],
     "name": "server-wild",
     "url": "https://github.com/jujuck/server-wild"
   },
@@ -277,9 +684,24 @@
     "id": "R_kgDOLzpELQ",
     "isPrivate": false,
     "languages": [
-      { "size": 5223, "node": { "name": "JavaScript" } },
-      { "size": 364, "node": { "name": "HTML" } },
-      { "size": 760, "node": { "name": "CSS" } }
+      {
+        "size": 5223,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 364,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 760,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "React-TODO",
     "url": "https://github.com/jujuck/React-TODO"
@@ -288,9 +710,24 @@
     "id": "R_kgDOLyf0pQ",
     "isPrivate": false,
     "languages": [
-      { "size": 697, "node": { "name": "HTML" } },
-      { "size": 2269, "node": { "name": "JavaScript" } },
-      { "size": 337, "node": { "name": "CSS" } }
+      {
+        "size": 697,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 2269,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 337,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "DOM_support",
     "url": "https://github.com/jujuck/DOM_support"
@@ -299,9 +736,24 @@
     "id": "R_kgDOLyoxdA",
     "isPrivate": false,
     "languages": [
-      { "size": 2312, "node": { "name": "JavaScript" } },
-      { "size": 357, "node": { "name": "HTML" } },
-      { "size": 336, "node": { "name": "CSS" } }
+      {
+        "size": 2312,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 357,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 336,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "React-Simpsons_2024",
     "url": "https://github.com/jujuck/React-Simpsons_2024"
@@ -310,9 +762,24 @@
     "id": "R_kgDOLyf5ew",
     "isPrivate": false,
     "languages": [
-      { "size": 2469, "node": { "name": "JavaScript" } },
-      { "size": 361, "node": { "name": "HTML" } },
-      { "size": 430, "node": { "name": "CSS" } }
+      {
+        "size": 2469,
+        "node": {
+          "name": "JavaScript"
+        }
+      },
+      {
+        "size": 361,
+        "node": {
+          "name": "HTML"
+        }
+      },
+      {
+        "size": 430,
+        "node": {
+          "name": "CSS"
+        }
+      }
     ],
     "name": "React-Demo",
     "url": "https://github.com/jujuck/React-Demo"
