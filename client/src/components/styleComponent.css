@@ -1,0 +1,17 @@
+.card {
+  display: flexbox;
+  background-color: rgb(219, 221, 224);
+  border-radius: .5rem;
+  margin: .5rem;
+  width: 15rem;
+}
+
+.title {
+  color:rgb(3, 3, 121);
+  width: 14rem;
+}
+
+.url {
+  font-size: small;
+  width: 7rem;
+}

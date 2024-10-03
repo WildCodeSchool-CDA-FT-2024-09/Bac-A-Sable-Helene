@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.titleH1 {
+  justify-content: center;
+}
