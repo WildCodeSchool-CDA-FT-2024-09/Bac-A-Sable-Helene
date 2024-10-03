@@ -3,15 +3,58 @@
   background-color: rgb(219, 221, 224);
   border-radius: .5rem;
   margin: .5rem;
-  width: 15rem;
+  width: 25%;
+
 }
 
 .title {
   color:rgb(3, 3, 121);
   width: 14rem;
+  font:700;
+  text-align: center;
+  overflow-wrap: break-word; /* force le texte long à se couper */
 }
 
 .url {
   font-size: small;
   width: 7rem;
+  overflow: auto; 
+  color: rgb(3, 3, 121);
+  text-decoration: none; /* Supprime le soulignement */
+  list-style-type: none; /* Supprime les puces des éléments de la liste */
+  padding: 0; /* Supprime le padding par défaut */
+  margin: 0; /* Supprime la marge par défaut */
+}
+
+.url:hover {
+  color: black; /* Couleur au survol */
+}
+
+li {
+  padding: .25rem; /* Ajoute un espacement autour de chaque élément de la liste */
+  margin-bottom: .15rem; /* Ajoute un espacement entre les éléments */
+  
+}
+
+.languages {
+  color: black;
+}
+
+.private {
+  color: #7d0a0a;
+}
+
+.public {
+  color: green;
+}
+
+.languages {
+  background-color: rgb(199, 195, 195);
+  border-radius: .5rem;
+  padding: .5rem;
+  margin-top: 2rem;
+}
+
+.h3.ul {
+  width: 100%;
 }
