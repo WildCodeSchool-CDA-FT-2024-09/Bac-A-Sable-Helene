@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from "react";
 import connexion from "./services/connexion";
 import type { Repo } from './types/RepoType';
-//import data from "./assets/data.json";
 import RepoCard from './components/RepoCard';
 
 
