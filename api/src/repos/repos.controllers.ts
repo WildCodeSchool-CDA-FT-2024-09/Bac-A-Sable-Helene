@@ -68,29 +68,47 @@ repoControllers.get('/', async (_: any, res: Response) => {
 
  })
 
-repoControllers.delete('/:id',  async (req: Request, res: Response) => {
+// repoControllers.delete('/:id',  async (req: Request, res: Response) => {
+//   try {
+//     const repoId = req.params.id;
+
+//     if (!repoId) {
+//       return res.status(400).json({ message: 'Invalid ID format' });
+//     }
+
+//     // Vérifie d'abord si l'élément existe
+//     const repo = await Repo.findOne({ where: { id: repoId } });
+//     if (!repo) {
+//       return res.status(404).json({ message: `Repo with id ${repoId} not found` });
+//     }
+
+//     await Repo.delete(repoId);
+
+//     return res.sendStatus(204);
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: 'Internal server error' });
+//   }
+
+//  })
+repoControllers.get("/:id", async (req: Request, res: Response) => {
+  console.log("GET REPOS");
   try {
-    const repoId = req.params.id;
-
-    if (!repoId) {
-      return res.status(400).json({ message: 'Invalid ID format' });
-    }
-
-    // Vérifie d'abord si l'élément existe
-    const repo = await Repo.findOne({ where: { id: repoId } });
-    if (!repo) {
-      return res.status(404).json({ message: `Repo with id ${repoId} not found` });
-    }
-
-    await Repo.delete(repoId);
-
-    return res.sendStatus(204);
+    const repos = await Repo.find({
+      where: {
+        id: req.params.id,
+      },
+      relations: {
+        status: true,
+        languages: true,
+      },
+    });
+    res.status(200).json(repos);
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Internal server error' });
+    console.log(error);
+    res.sendStatus(500);
   }
-
- })
+});
 
 
 // // repoControllers.put('/:id', (req: Request, res: Response)=> {

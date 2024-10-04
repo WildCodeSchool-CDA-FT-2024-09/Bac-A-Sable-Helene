@@ -2,7 +2,7 @@
 GET http://localhost:3001/api/repos
 
 ### Récupérer un repo
-GET http://localhost:3001/api/repos/R_kgDOMxIC4w
+GET http://localhost:3001/api/repos/R_kgDOM2SnhA
 
 ### Récupérer un repo inexistant
 GET http://localhost:3001/api/repos/R_XXXXXXXXXX

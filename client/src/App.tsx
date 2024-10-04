@@ -32,6 +32,7 @@ useEffect(() => {
       {repos.map((repo: Repo) => (
         <RepoCard  
           key={repo.name} 
+          id={repo.id}
           name={repo.name} 
           url={repo.url} 
           status={repo.status} 
