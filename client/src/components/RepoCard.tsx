@@ -20,7 +20,7 @@ return (
         rel="noopener noreferrer" : Améliore la sécurité en empêchant la nouvelle page d'accéder à la page d'origine et aide également à prévenir les attaques de type phishing. Cela est particulièrement important lorsque tu utilises target="_blank".
   */}
     <div className="languages">Languages:
-    <Link to={`/details/${id}`} >en détails</Link>
+    <Link to={`/details/${id}`} >   voir le détail</Link>
      {/* <ul className="langsList">
       {languages.map((lang: Lang) => (
         <li key={lang.name} className="langTag">{lang.name}</li>

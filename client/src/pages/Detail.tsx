@@ -1,4 +1,6 @@
+// useParams pour utiliser le loader utilisédans main
 import { useParams } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import connexion from "../services/connexion";
 import type { Repo } from "../types/RepoType";
