@@ -1,15 +1,15 @@
 .card {
-  display: flexbox;
-  background-color: rgb(219, 221, 224);
+  display: flex;
+  flex-direction: column;
+  background-color: #edebeb;
   border-radius: .5rem;
-  margin: .5rem;
-  width: 25%;
+  margin: 1.5rem;
+  width: 18%;
 
 }
 
 .title {
-  color:rgb(3, 3, 121);
-  width: 14rem;
+  color: #043464;
   font:700;
   text-align: center;
   overflow-wrap: break-word; /* force le texte long à se couper */
@@ -19,7 +19,7 @@
   font-size: small;
   width: 7rem;
   overflow: auto; 
-  color: rgb(3, 3, 121);
+  color: #04a6d9;
   text-decoration: none; /* Supprime le soulignement */
   list-style-type: none; /* Supprime les puces des éléments de la liste */
   padding: 0; /* Supprime le padding par défaut */
@@ -36,20 +36,17 @@ li {
   
 }
 
-.languages {
-  color: black;
-}
-
 .private {
-  color: #7d0a0a;
+  color: #ea9171;
 }
 
 .public {
-  color: green;
+  color: #aa6762;
 }
 
 .languages {
-  background-color: rgb(199, 195, 195);
+  color: #243444;
+  background-color: #b0b8c7;
   border-radius: .5rem;
   padding: .5rem;
   margin-top: 2rem;
@@ -57,4 +54,33 @@ li {
 
 .h3.ul {
   width: 100%;
+}
+
+.link {
+  color: #04a6d9;
+}
+
+
+.navbar {
+  display: flex; /* Utilisation de flexbox pour l'alignement */
+  justify-content: space-around; /* Espacement égal entre les liens */
+  background-color: b0b8c7; /* Couleur de fond de la barre de navigation */
+  padding: 10px; /* Espacement interne */
+  border-bottom: 1px solid #ddd; /* Bordure inférieure pour la séparation */
+}
+
+.nav-link {
+  text-decoration: none; /* Supprimer le soulignement par défaut des liens */
+  color: #007bff; /* Couleur du texte */
+  padding: 10px 15px; /* Espacement interne autour des liens */
+  border: 1px solid transparent; /* Bordure pour un effet de bouton */
+  border-radius: 5px; /* Coins arrondis */
+  transition: background-color 0.3s, color 0.3s; /* Animation de transition */
+}
+
+/* Effet de survol pour les liens */
+.nav-link:hover {
+  background-color: #007bff; /* Couleur de fond au survol */
+  color: #edebeb; /* Couleur du texte au survol */
+  border-color: #007bff; /* Bordure colorée au survol */
 }

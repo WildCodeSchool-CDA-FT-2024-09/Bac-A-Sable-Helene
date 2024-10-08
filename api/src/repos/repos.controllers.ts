@@ -5,14 +5,30 @@ import { Lang } from "../langs/lang.entities";
 
 const repoControllers = express.Router();
 
-repoControllers.get('/', async (_: any, res: Response) => {
+repoControllers.get('/', async (req: any, res: Response) => {
   try {
-    const repos = await Repo.find( {
-      relations : {
-        status: true,
-        languages: true
-      }
-    });
+    // Récupérer le paramètre `lang` depuis la query string
+    const { lang } = req.query;
+    let repos;
+
+    if (lang) {
+      // Si un langage est spécifié, chercher les dépôts qui utilisent ce langage
+      repos = await Repo.createQueryBuilder('repo')
+        .leftJoinAndSelect('repo.languages', 'lang')  // Joindre la relation avec les langages
+        .leftJoinAndSelect('repo.status', 'status')   // Joindre la relation avec le statut
+        .where('lang.name = :lang', { lang })         // Filtrer par le nom du langage
+        .getMany();
+    } else {
+      // Sinon, récupérer tous les dépôts avec toutes les relations
+      repos = await Repo.find( {
+           relations : {
+             status: true,
+             languages: true
+           }
+         });
+    }
+
+   
     res.status(200).json(repos)
   } catch (error) {
     res.sendStatus(500)

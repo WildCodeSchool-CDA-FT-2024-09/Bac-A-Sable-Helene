@@ -12,3 +12,8 @@ export type Repo = {
   } ;
   languages: Lang[]; 
 }
+
+export type Status = {
+  id: number;
+  name: string;
+};

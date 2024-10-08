@@ -35,4 +35,12 @@ CREATE TABLE IF NOT EXISTS "commentary" (
 "updated_at" TIMESTAMPTZ
 );
 
+CREATE TABLE "repo_language" (
+  "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "repo_id" INT FOREIGN KEY NOT NULL REFERENCES "repo"("id"),
+  "language_id" INT FOREIGN KEY NOT NULL REFERENCES "language"("id"),
+  "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  "updated_at" TIMESTAMPTZ
+);
+
 COMMIT;

@@ -1,8 +1,11 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 1rem;
-  background-color: black;
+  background-image: url('./../public/sl_031420_28950_10.jpg'); /* Chemin relatif */
+  background-size: cover; /* Ajuste la taille de l'image pour couvrir tout l'élément */
+  background-position: center; /* Centre l'image dans l'élément */
+  background-repeat: no-repeat; /* Évite que l'image ne se répète */
 }
 
 .card {
@@ -16,12 +19,13 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
+  /* margin: auto; */
+  margin-left: 6rem;
 }
 
 .titleH1 {
   text-align: center;
-  color: rgb(222, 219, 219);
+  color: #edebeb;
 }
 
 
