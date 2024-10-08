@@ -7,17 +7,23 @@ import {
   PrimaryGeneratedColumn,
   OneToMany
 } from "typeorm";
+import { Field, ObjectType } from "type-graphql";
 
+
+@ObjectType()
 @Entity()
 export class Status extends BaseEntity {
+  @Field()
   @PrimaryGeneratedColumn()
   id : number;
 
+  @Field()
   @Column()
   @IsString()
   label : string;
 
- @OneToMany(() => Repo , repo => repo.status)
+  @Field(() => [Repo])
+  @OneToMany(() => Repo , repo => repo.status)
   repos?: Repo[]
 
 }

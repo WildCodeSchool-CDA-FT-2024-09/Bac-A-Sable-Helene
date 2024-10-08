@@ -28,56 +28,72 @@
 import { ApolloServer } from "@apollo/server"; // preserve-line
 import { startStandaloneServer } from "@apollo/server/standalone";
 
-import repos from "../data/repos.json";
-import langs from "../data/langs.json";
-import status from "../data/status.json";
+import { buildSchema } from "type-graphql";
+import { dataSource } from "./db/client";
+import "reflect-metadata";
 
-const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Repo {
-    id: String
-    name: String
-    url: String
-    isFavorite: Int
-  }
-
-  type Lang {
-    id: Int
-    name: String
-  }
-
-  type Status {
-    id: Int
-    name: String
-  }
+import RepoResolver from "./repos/repo.resolvers";
 
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    repos: [Repo]
-    langs: [Lang]
-    status: [Status]
-  }
-`;
+// import repos from "../data/repos.json";
+// import langs from "../data/langs.json";
+// import status from "../data/status.json";
 
-const resolvers = {
-  Query: {
-    repos: () => repos,
-    langs: () => langs,
-    status: () => status,
-  },
-};
+// const typeDefs = `#graphql
+//   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+//   # This "Book" type defines the queryable fields for every book in our data source.
+//   type Repo {
+//     id: String
+//     name: String
+//     url: String
+//     isFavorite: Int
+//   }
+
+//   type Lang {
+//     id: Int
+//     name: String
+//   }
+
+//   type Status {
+//     id: Int
+//     name: String
+//   }
+
+
+//   # The "Query" type is special: it lists all of the available queries that
+//   # clients can execute, along with the return type for each. In this
+//   # case, the "books" query returns an array of zero or more Books (defined above).
+// #   type Query {
+// #     repos: [Repo]
+// #     langs: [Lang]
+// #     status: [Status]
+// #   }
+// # `;
+
+// # const resolvers = {
+// #   Query: {
+// #     repos: () => repos,
+// #     langs: () => langs,
+// #     status: () => status,
+// #   },
+// # };
+
+// # const server = new ApolloServer({
+// #   typeDefs,
+// #   resolvers,
+// # });
 
 (async () => {
+  await dataSource.initialize();
+  const schema = await buildSchema({
+    resolvers: [RepoResolver],
+  });
+
+  const server = new ApolloServer({
+    schema,
+  });
+
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
   });
