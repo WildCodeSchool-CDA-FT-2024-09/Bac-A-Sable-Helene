@@ -41,19 +41,19 @@ export class Repo extends BaseEntity {
   @ManyToMany(()=> Lang, (lang)=> lang.repos, {cascade: true})
   @JoinTable()
   languages?: Lang[];
-  }
+}
 
-   @ObjectType()
-  export class LightRepo extends BaseEntity {
-   @Field(() => ID)
-   id: string;
+@ObjectType()
+export class LightRepo extends BaseEntity {
+  @Field(() => ID)
+  id: string;
 
-   @Field()
-   name: string;
+  @Field()
+  name: string;
 
   @Field()
   url: string;
 
-   @Field()
-   isFavorite: boolean;
+  @Field()
+  isFavorite: boolean;
  }
