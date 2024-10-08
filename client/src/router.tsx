@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "languages",
+        path: "/langs",
         element: <Languages />,
         loader: async () => {
           const response = await connexion.get(`/api/langs`);

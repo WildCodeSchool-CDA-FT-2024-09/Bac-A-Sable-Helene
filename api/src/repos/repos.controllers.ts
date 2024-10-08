@@ -36,14 +36,23 @@ repoControllers.get('/', async (req: any, res: Response) => {
   
 })
 
-// // repoControllers.get('/:id', (req: Request, res: Response) => {
-// //   const repo = repos.find((rep: Repo) => rep.id === req.params.id) as Repo;
-// //   if (repo) {
-// //     res.status(200).json(repo)
-// //   } else {
-// //     res.sendStatus(404)
-// //   }
-// // })
+repoControllers.get('/:id', async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const repo = await Repo.findOne({
+      where: { id },
+      relations : ['languages', 'status'] 
+    });
+    if (!repo) {
+      return res.status(404).json({ message: 'Dépôt non trouvé' });
+    }
+    return res.json(repo);
+  } catch (error) {
+    console.error("Erreur lors de la récupération du dépôt :", error);
+    return res.sendStatus(500);
+  }
+});
+
 
  repoControllers.post('/', async (req: Request, res: Response) => {
   try {

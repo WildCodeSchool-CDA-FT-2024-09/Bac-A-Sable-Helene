@@ -4,14 +4,12 @@ import connexion from "./services/connexion";
 import type { Repo, Lang } from './types/RepoType';
 import RepoCard from './components/RepoCard';
 
-import { NavLink, Outlet, useLocation, useNavigate  } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 function App() {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [languages, setLanguages] = useState<Lang[]>([]);
   const location = useLocation();  // Permet d'accéder à l'URL actuelle
-  
-
 
   const fetchRepos = async (lang: string | null) => {
     try {
@@ -46,12 +44,11 @@ function App() {
     fetchRepos(lang);  // Récupérer les dépôts filtrés ou non
   }, [location.search]);  // Dépend de l'URL
 
-
-
   return (
     <>
       <nav className="navbar">
         <NavLink className="nav-link" to="/">Tous les Repos</NavLink> {/* Lien pour tous les dépôts */}
+        <NavLink className="nav-link" to="/langs">Tous les langages</NavLink>
         {languages.map((lang) => (
           <NavLink className="nav-link" key={lang.id} to={`/?lang=${lang.name}`}> 
             {lang.name}
