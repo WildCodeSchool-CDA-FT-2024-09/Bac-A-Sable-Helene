@@ -17,16 +17,6 @@ langsControllers.get('/', async (_: any, res: Response) => {
 }
 })
 
-// langsControllers.get('/:id', (req: Request, res: Response)=> {
-//   const lang = langs.find(lg => lg.id === parseInt(req.params.id)) as Lang;
-// if (lang) {
-//   res.status(200).json(lang)
-// }else {
-//   res.sendStatus(404)
-// }
-// } 
-// )
-
 langsControllers.post('/', async (req: Request, res: Response)=> {
   try {
     const lang = new Lang();

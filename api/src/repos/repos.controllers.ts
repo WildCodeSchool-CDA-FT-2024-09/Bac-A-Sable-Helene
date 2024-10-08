@@ -20,15 +20,6 @@ repoControllers.get('/', async (_: any, res: Response) => {
   
 })
 
-// // repoControllers.get('/:id', (req: Request, res: Response) => {
-// //   const repo = repos.find((rep: Repo) => rep.id === req.params.id) as Repo;
-// //   if (repo) {
-// //     res.status(200).json(repo)
-// //   } else {
-// //     res.sendStatus(404)
-// //   }
-// // })
-
  repoControllers.post('/', async (req: Request, res: Response) => {
   try {
     const repo = new Repo();
@@ -37,7 +28,9 @@ repoControllers.get('/', async (_: any, res: Response) => {
     repo.url = req.body.url;
 
     //findOneOrFail pour chercher un id mais éjecte une erreur si ne trouve pas l'id
-    const status = await Status.findOneOrFail({ where : { id: req.body.isPrivate}})
+    const status = await Status.findOneOrFail({ where : {
+       id: req.body.isPrivate
+      }})
     repo.status = status;
 
     const languageIds: number[] = req.body.langIds;
@@ -51,13 +44,7 @@ repoControllers.get('/', async (_: any, res: Response) => {
       }
       languages.push(lang);
     }
-
     repo.languages = languages;
-
-    //const error = await validate(repo)
-    // if (error.length > 0) {
-    //   return res.status(422).json(error)
-    // } else {
 
     await repo.save();
     return res.status(201).json(repo)
