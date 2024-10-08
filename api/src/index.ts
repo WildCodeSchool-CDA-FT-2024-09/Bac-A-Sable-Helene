@@ -33,6 +33,8 @@ import { dataSource } from "./db/client";
 import "reflect-metadata";
 
 import RepoResolver from "./repos/repo.resolvers";
+import LangResolver from "./langs/lang.resolvers";
+import StatusResolver from "./status/status.resolvers";
 
 
 // import repos from "../data/repos.json";
@@ -87,7 +89,7 @@ import RepoResolver from "./repos/repo.resolvers";
 (async () => {
   await dataSource.initialize();
   const schema = await buildSchema({
-    resolvers: [RepoResolver],
+    resolvers: [RepoResolver, LangResolver, StatusResolver], 
   });
 
   const server = new ApolloServer({
