@@ -40,6 +40,21 @@ export default class RepoResolver {
     return repos;
   }
 
+  @Query(() => [Repo])
+  async getAllRepos(@Arg("filter", {nullable: true}) filter: string) {
+    if (filter) {
+      return await Repo.find({
+        where: { languages: {
+          id: Number(filter)
+        }},
+        relations: { languages: true, status: true }
+    });
+    }
+    return await Repo.find({
+      relations: { languages: true, status: true }
+    });
+  }
+
    @Query(() => [LightRepo])
    async lightrepos() {
      const repos = await Repo.find();

@@ -24,11 +24,12 @@ if (error) return <p>Error</p>;
       <main className="main">
       {data.fullrepos.map((repo: Repo) => (
         <RepoCard
+          key={repo.id} 
           name={repo.name}
           url={repo.url}
           id={repo.id}
-          // status={repo.status} 
-          // languages={repo.languages}
+          status={repo.status} 
+          languages={repo.languages}
           isFavorite={repo.isFavorite}
         />
       ))}
