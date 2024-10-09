@@ -1,95 +1,67 @@
 import './App.css';
-// import { useEffect, useState } from "react";
-// import connexion from "./services/connexion";
+import { useState } from "react";
 import type { Repo } from './types/RepoType';
 import RepoCard from './components/RepoCard';
 import { useQuery } from "@apollo/client";
 import GET_REPOS from './services/GET_REPOS';
+import GET_LANGS from './services/GET_LANGS';
 
 function App() {
- 
-// const GET_REPOS = gql`
-//   query Fullrepos {
-//     fullrepos {
-//       id
-//       name
-//       url
-//       isFavorite
-//     }
-//   }
-// `;
+  // State pour gérer l'affichage des repos ou des langues
+  const [view, setView] = useState<'repos' | 'languages'>('repos');
 
-const { loading, error, data, refetch } = useQuery(GET_REPOS);
-if (loading) return <h1>Loading ...</h1>;
-if (error) return <p>Error</p>;
+  // Requête pour les repos
+  const { loading: loadingRepos, error: errorRepos, data: reposData, refetch: refetchRepos } = useQuery(GET_REPOS);
 
+  // Requête pour les langues
+  const { loading: loadingLangs, error: errorLangs, data: langsData, refetch: refetchLangs } = useQuery(GET_LANGS);
 
-  // const [repos, setRepos] = useState<Repo[]>([]);
-
-  //console.log(repos);
-
-// useEffect(() => {
-//   console.log("I'm the useEffect");
-
-//   const fetchRepos = async () => {
-//     try {
-//       const repos = await connexion.get<Repo[]>("/api/repos");
-//       setRepos(repos.data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-//   fetchRepos();
-
-// }, []);
+  // Affichage de loading ou des erreurs
+  if (loadingRepos || loadingLangs) return <h1>Loading ...</h1>;
+  if (errorRepos || errorLangs) return <p>Error</p>;
 
   return (
     <>
-      <h1 className="titleH1">Mes repos GitHub</h1>
+      <h1 className="titleH1">Mes Repos GitHub</h1>
+      <nav className="navbar">
+        <button className="nav-link" onClick={() => setView('repos')}>Tous les Repos</button>
+        <button className="nav-link" onClick={() => setView('languages')}>Tous les Languages</button>
+      </nav>
+
       <main className="main">
-      {data.fullrepos.map((repo: Repo) => (
-        <RepoCard
-          name={repo.name}
-          url={repo.url}
-          id={repo.id}
-          status={repo.status} 
-          languages={repo.languages}
-          isFavorite={repo.isFavorite}
-        />
-      ))}
-      <button onClick={refetch}>Rafraichir</button>
-      {/* {repos.map((repo: Repo) => (
-        <RepoCard  
-          key={repo.name} 
-          id={repo.id}
-          name={repo.name} 
-          url={repo.url} 
-          status={repo.status} 
-          languages={repo.languages}
-          />
-      ))} */}
-     </main>
+        {view === 'repos' && reposData?.fullrepos && (
+          <>
+            {reposData.fullrepos.map((repo: Repo) => (
+              <RepoCard
+                key={repo.id}
+                name={repo.name}
+                url={repo.url}
+                id={repo.id}
+                status={repo.status}
+                languages={repo.languages}
+                isFavorite={repo.isFavorite}
+              />
+            ))}
+            <button onClick={refetchRepos}>Rafraîchir Repos</button>
+          </>
+        )}
+
+{view === 'languages' && langsData?.langs && (
+          <>
+            <h2 className="langCard">Liste des Langues</h2>
+            <ul className="langUrl">
+              {langsData.langs.map((lang: { id: number; name: string }) => (
+                <li key={lang.id}>{lang.name}</li>
+              ))}
+            </ul>
+            <button onClick={refetchLangs}>Rafraîchir Langues</button>
+          </>
+        )}
+      </main>
+
     </>
   );
 }
 
-export default App
 
-
-// const pers = {
-//   id: 1,
-//   name: "Bob",
-//   firstname: "Smith",
-//   like: false
-// }
-
-// // bouton pour passer à like
-
-// const handleLike = () => {
-//   const updatePers = {...pers};
-//   updatePers.like = !pers.like
-//   setPers(updatePers)
-// }
-
-// Equivalent: prev signfit state précédent cad je fais la copie et je modifie par son contraire pour like
-// onClick={() => setPers((prev) => ({...prev, like: !prev.like}))}
+export default App;

@@ -35,7 +35,7 @@ return (
           </p>
      <div className="languages">Languages:
         {/* <Link to={`/details/${id}`} >   voir le détail</Link> */}
-          <ul className="langsList">
+          <ul>
             {languages.map((lang: Lang) => (
               <li key={lang.name} className="langTag">{lang.name}</li>
           ))}

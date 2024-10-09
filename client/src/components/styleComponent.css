@@ -36,11 +36,6 @@ li {
   
 }
 
-.languages {
-  color: #243444;
-  background-color: #b0b8c7;
-}
-
 .private {
   color: #ea9171;
 }
@@ -50,10 +45,15 @@ li {
 }
 
 .languages {
-  background-color: rgb(199, 195, 195);
+  color: #243444;
+  background-color: #b0b8c7;
   border-radius: .5rem;
   padding: .5rem;
   margin-top: 2rem;
+}
+
+.langTag{
+  color: #243444;
 }
 
 .h3.ul {
