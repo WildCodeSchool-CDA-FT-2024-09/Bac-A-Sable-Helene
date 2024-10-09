@@ -18,10 +18,15 @@ export default function Detail() {
       <h1>Détails du dépôt : {data.name}</h1>
       <h3>Langages :</h3>
       <ul>
-        {data.languages.map(language => (
-          <li key={language.id}>{language.name}</li> 
-        ))}
+        {data.languages && data.languages.length > 0 ? (
+          data.languages.map((language) => (
+            <li key={language.id}>{language.name}</li> 
+          ))
+        ) : (
+          <li>Aucun langage spécifié pour ce dépôt.</li> 
+        )}
       </ul>
+
     </div>
   );
 }

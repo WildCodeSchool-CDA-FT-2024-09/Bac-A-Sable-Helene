@@ -3,12 +3,14 @@
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  
+  color: #edebeb;
 }
 
 .repo-detail h1 {
-  font-size: 24px;
+  font-size: x-large;
   margin-bottom: 10px;
+  text-align: center;
+  color: #edebeb;
 }
 
 .repo-detail h3 {
@@ -24,3 +26,5 @@
 .repo-detail li {
   margin: 5px 0; /* Espacement entre les éléments de la liste */
 }
+
+

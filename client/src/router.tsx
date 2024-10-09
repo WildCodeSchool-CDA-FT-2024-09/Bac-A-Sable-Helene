@@ -3,6 +3,7 @@ import connexion from "./services/connexion.ts";
 import App from './App.tsx';
 import Detail from './pages/Detail.tsx';
 import Languages from "./pages/Languagues.tsx";
+import Repos from "./pages/Repos.tsx";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,18 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "details/:id",
+        path: "/repos",
+        element: <Repos />,
+        loader: async ( {request }) => {
+          const url = new URL(request.url);  // Obtenir l'URL complète
+          const lang = url.searchParams.get("lang");  // Extraire la query string `lang`
+          const apiUrl = lang ? `/api/repos?lang=${lang}` : '/api/repos';  // Détermine l'URL à appeler
+          const response = await connexion.get(apiUrl);  // Fait l'appel à l'API
+          return response.data;
+        },
+      },
+      {
+        path: "repos/:id",
         element: < Detail />,
         loader: async ({ params }) => {
           const repo = await connexion.get(`/api/repos/${params.id}`);

@@ -12,7 +12,7 @@ return (
     <h3 className={statusClass}>{status.label}</h3>
     <a className="url" href={url} target="_blank" rel="noopener noreferrer">{url}</a>
     <div className="languages">Languages:
-    <Link className="link" to={`/details/${id}`} > voir le détail</Link>
+    <Link className="link" to={`/repos/${id}`} > voir le détail</Link>
     </div>
   </div>
 );

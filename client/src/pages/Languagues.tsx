@@ -4,6 +4,7 @@ import connexion from "../services/connexion";
 import type { Lang } from "../types/RepoType"; 
 import LanguageCard from "../components/LanguageCard"; 
 import { Link } from "react-router-dom"; // Importez Link pour la navigation
+import styleComponent from "../components/styleComponent.css";
 
 export default function Languages() {
   const [languages, setLanguages] = useState<Lang[]>([]);
