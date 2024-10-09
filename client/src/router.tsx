@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-// import connexion from "./services/connexion.ts";
-
 // import client from "./services/connexion.ts";
 
 import App from './App.tsx';
@@ -10,6 +8,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+
   },
   {
     path: "/details/:id",

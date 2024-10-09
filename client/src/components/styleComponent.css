@@ -1,14 +1,14 @@
 .card {
   display: flexbox;
-  background-color: rgb(219, 221, 224);
+  background-color: #edebeb;
   border-radius: .5rem;
-  margin: .5rem;
-  width: 25%;
+  margin: 1.5rem;
+  width: 18%;
 
 }
 
 .title {
-  color:rgb(3, 3, 121);
+  color:#043464;
   width: 14rem;
   font:700;
   text-align: center;
@@ -19,7 +19,7 @@
   font-size: small;
   width: 7rem;
   overflow: auto; 
-  color: rgb(3, 3, 121);
+  color: #04a6d9;
   text-decoration: none; /* Supprime le soulignement */
   list-style-type: none; /* Supprime les puces des éléments de la liste */
   padding: 0; /* Supprime le padding par défaut */
@@ -37,15 +37,16 @@ li {
 }
 
 .languages {
-  color: black;
+  color: #243444;
+  background-color: #b0b8c7;
 }
 
 .private {
-  color: #7d0a0a;
+  color: #ea9171;
 }
 
 .public {
-  color: green;
+  color: #aa6762;
 }
 
 .languages {
@@ -57,4 +58,8 @@ li {
 
 .h3.ul {
   width: 100%;
+}
+
+.link {
+  color: #04a6d9;
 }

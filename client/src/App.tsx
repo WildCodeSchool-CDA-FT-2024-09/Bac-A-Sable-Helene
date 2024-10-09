@@ -3,20 +3,21 @@ import './App.css';
 // import connexion from "./services/connexion";
 import type { Repo } from './types/RepoType';
 import RepoCard from './components/RepoCard';
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import GET_REPOS from './services/GET_REPOS';
 
 function App() {
  
-const GET_REPOS = gql`
-  query Fullrepos {
-    fullrepos {
-      id
-      name
-      url
-      isFavorite
-    }
-  }
-`;
+// const GET_REPOS = gql`
+//   query Fullrepos {
+//     fullrepos {
+//       id
+//       name
+//       url
+//       isFavorite
+//     }
+//   }
+// `;
 
 const { loading, error, data, refetch } = useQuery(GET_REPOS);
 if (loading) return <h1>Loading ...</h1>;
@@ -51,8 +52,8 @@ if (error) return <p>Error</p>;
           name={repo.name}
           url={repo.url}
           id={repo.id}
-          // status={repo.status} 
-          // languages={repo.languages}
+          status={repo.status} 
+          languages={repo.languages}
           isFavorite={repo.isFavorite}
         />
       ))}
