@@ -3,4 +3,10 @@ export type Repo = {
   name: string;
   url: string;
   isPrivate: number;
+  languages: [
+    id: number
+  ];
+  status: [
+    id: number
+  ]
 }

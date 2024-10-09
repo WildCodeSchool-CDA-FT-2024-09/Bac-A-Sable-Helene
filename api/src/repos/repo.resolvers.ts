@@ -1,9 +1,11 @@
 import { Repo,LightRepo } from "./repo.entities";
-import { Arg, Field, InputType, Mutation, Query, Resolver } from "type-graphql";
+import { ID, Arg, Field, InputType, Mutation, Query, Resolver } from "type-graphql";
+import { Status } from "../status/status.entities";
+import LangResolver from "../langs/lang.resolvers";
 
 @InputType()
 // Blocage du types des différents champs de Repo avec Partial: verouillage des types et des possibilités d'ajout un champ
-class RepoInput implements Partial<Repo> {
+class RepoInput {
   @Field()
   id: string;
 
@@ -12,6 +14,15 @@ class RepoInput implements Partial<Repo> {
 
   @Field()
   url: string;
+
+  @Field()
+  isPrivate: number;
+
+  @Field(() => [ID])  // Besoin de spécifier pour les tableaux le type pour graphQL
+  languages: number[];
+
+  @Field(() => [ID])
+  status: number[];
 }
 
 @Resolver(Repo)
@@ -36,19 +47,45 @@ export default class RepoResolver {
      return repos;
    }
 
-  @Mutation(() => Repo)
-  async createNewRepo(@Arg("data") newRepo: RepoInput) {
-    //const newRepo: RepoInput = req.body.data
-    // fonction de validation
-    console.info(newRepo);
-    const repo = await Repo.findOneOrFail({
-      where: { id: "R_kgDOM2SnhA" },
+   @Mutation(() => Repo)
+   async createNewRepo(@Arg("data") newRepo: RepoInput) {
+     //const newRepo: RepoInput = req.body.data
+     // fonction de validation
+     console.info(newRepo);
+ 
+     const repo = new Repo();
+     repo.id = newRepo.id;
+     repo.name = newRepo.name;
+     repo.url = newRepo.url;
+ 
+     const status = await Status.findOneOrFail({
+       where: { id: +newRepo.isPrivate },
+     });
+     repo.status = status;
+
+     // Appel à LangResolver pour récupérer les langues par ID
+     const langResolver = new LangResolver();
+     const languages = [];
+     for (const langId of newRepo.languages) {
+       const lang = await langResolver.lang(langId);
+       if (lang) {
+         languages.push(lang);
+       }
+     }
+ 
+     repo.languages = languages;
+ 
+     await repo.save();
+     console.log("repo", repo);
+     const myRepo = await Repo.findOneOrFail({
+       where: { id: newRepo.id },
        relations: {
          languages: true,
          status: true,
        },
-    });
-    console.log(repo);
-    return repo;
-  }
+     });
+     console.log("myRepo", myRepo);
+     return myRepo;
+   }
+ 
 }
