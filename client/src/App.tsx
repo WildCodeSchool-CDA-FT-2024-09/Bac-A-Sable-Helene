@@ -25,9 +25,6 @@ function App() {
   }, [location.pathname]); // Dépendance sur l'URL
 
 
-  // // Requête pour les repos
-  // const { loading: loadingRepos, error: errorRepos, data: reposData, refetch: refetchRepos } = useQuery(GETREPOS);
-
     // Requête pour les repos avec filtre
     const { loading: loadingRepos, error: errorRepos, data: reposData, refetch: refetchRepos } = useQuery(GETREPOS, {
       variables: { filter: filter || null }
@@ -66,29 +63,9 @@ function App() {
           </nav>
 
 
-      {/* <nav className="navbar">
-      <button className="nav-link" onClick={() => setView('repos')}>
-          <a href="/repos">Tous les Repos</a>
-        </button>
-
-        <button className="nav-link" onClick={() => setView('languages')}>
-          <a href="/languages">Tous les Langues</a>
-        </button>
-      </nav> */}
-
       <main className="main">
         {view === 'repos' && reposData?.getAllRepos && (
           <>
-            {/* <button onClick={() => filterRepoByLanguage(null)}>Afficher Tous les Repos</button> */}
-            {/* Ajout d'un champ de saisie pour le filtre */}
-            {/* <input
-              type="text"
-              placeholder="Filter by language ID"
-              value={filter || ""}
-              onChange={(e) => filterRepo(e.target.value)} // Appel de la fonction filterRepo lors du changement de valeur
-            /> */}
-            {/* <button onClick={() => filterRepo(null)}>Reset Filter</button> */}
-
             {/* Affichage des repos filtrés */}
             {reposData.getAllRepos.map((repo: Repo) => (
               <RepoCard
@@ -111,9 +88,7 @@ function App() {
             <ul className="langUrl">
               {langsData.langs.map((lang: { id: number; name: string }) => (
                 <li key={lang.id}>
-                {/* <button onClick={() => filterRepoByLanguage(String(lang.id))}>
                   {lang.name}
-                </button> */}
               </li>
               ))}
             </ul>
