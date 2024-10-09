@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import connexion from "./services/connexion.ts";
+// import connexion from "./services/connexion.ts";
+
+// import client from "./services/connexion.ts";
+
 import App from './App.tsx';
 import Detail from './pages/Detail.tsx';
 
@@ -11,11 +14,11 @@ const router = createBrowserRouter([
   {
     path: "/details/:id",
     element: < Detail />,
-    loader: async ({ params }) => {
-      const repos = await connexion.get(`/api/repos/${params.id}`);
-      console.log("Loader", repos);
-      return repos.data;
-    },
+    // loader: async ({ params }) => {
+    //   const repos = await connexion.get(`/api/repos/${params.id}`);
+    //   console.log("Loader", repos);
+    //   return repos.data;
+    // },
   }
 ]);
 

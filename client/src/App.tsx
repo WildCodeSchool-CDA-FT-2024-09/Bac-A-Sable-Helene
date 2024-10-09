@@ -1,35 +1,63 @@
 import './App.css';
-import { useEffect, useState } from "react";
-import connexion from "./services/connexion";
+// import { useEffect, useState } from "react";
+// import connexion from "./services/connexion";
 import type { Repo } from './types/RepoType';
 import RepoCard from './components/RepoCard';
-
+import { useQuery, gql } from "@apollo/client";
 
 function App() {
-  const [repos, setRepos] = useState<Repo[]>([]);
+ 
+const GET_REPOS = gql`
+  query Fullrepos {
+    fullrepos {
+      id
+      name
+      url
+      isFavorite
+    }
+  }
+`;
+
+const { loading, error, data, refetch } = useQuery(GET_REPOS);
+if (loading) return <h1>Loading ...</h1>;
+if (error) return <p>Error</p>;
+
+
+  // const [repos, setRepos] = useState<Repo[]>([]);
 
   //console.log(repos);
 
-useEffect(() => {
-  console.log("I'm the useEffect");
+// useEffect(() => {
+//   console.log("I'm the useEffect");
 
-  const fetchRepos = async () => {
-    try {
-      const repos = await connexion.get<Repo[]>("/api/repos");
-      setRepos(repos.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  fetchRepos();
+//   const fetchRepos = async () => {
+//     try {
+//       const repos = await connexion.get<Repo[]>("/api/repos");
+//       setRepos(repos.data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+//   fetchRepos();
 
-}, []);
+// }, []);
 
   return (
     <>
       <h1 className="titleH1">Mes repos GitHub</h1>
       <main className="main">
-      {repos.map((repo: Repo) => (
+      {data.fullrepos.map((repo: Repo) => (
+        <RepoCard
+          name={repo.name}
+          url={repo.url}
+          id={repo.id}
+          // status={repo.status} 
+          // languages={repo.languages}
+          isFavorite={repo.isFavorite}
+        />
+      ))}
+      <button onClick={refetch}>Rafraichir</button>
+      {/* {repos.map((repo: Repo) => (
         <RepoCard  
           key={repo.name} 
           id={repo.id}
@@ -38,7 +66,7 @@ useEffect(() => {
           status={repo.status} 
           languages={repo.languages}
           />
-      ))}
+      ))} */}
      </main>
     </>
   );

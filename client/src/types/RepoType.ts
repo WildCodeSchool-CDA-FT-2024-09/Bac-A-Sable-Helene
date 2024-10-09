@@ -7,8 +7,9 @@ export type Repo = {
   id: string;
   name: string;
   url: string;
-  status: {
-    label: string;
-  } ;
-  languages: Lang[]; 
+  // status: {
+  //   label: string;
+  // } ;
+  // languages: Lang[]; 
+  isFavorite: boolean;
 }
