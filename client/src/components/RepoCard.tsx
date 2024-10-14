@@ -1,5 +1,7 @@
 import type { Repo, Lang } from "../types/RepoType";
 import "./styleComponent.css";
+import { useMutation } from '@apollo/client';
+import UPDATE_FAVORITE_STATUS from '../services/UPDATE_FAVORITE_STATUS';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'; // Coeur plein
@@ -8,9 +10,28 @@ import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'; /
 
 // import { Link } from "react-router-dom";
 
-function RepoCard({ name, url, isFavorite, status, languages }: Repo){
+function RepoCard({ id, name, url, isFavorite, status, languages }: Repo){
   // Déterminer la couleur en fonction du status.id
   const statusClass = status.label === 'Public' ? 'public' : 'private'; // Vert si Public, Rouge si Private
+  const [updateFavoriteStatus] = useMutation(UPDATE_FAVORITE_STATUS);
+
+
+  const toggleFavorite = () => {
+    updateFavoriteStatus({
+      variables: {
+        id,
+        isFavorite: !isFavorite, // Inverser le statut de favori
+      },
+      optimisticResponse: {
+        updateFavoriteStatus: {
+          id,
+          isFavorite: !isFavorite, // Mettez à jour de manière optimiste le nouveau statut
+          __typename: 'Repo', // Nécessaire pour Apollo
+        },
+      },
+    });
+  };
+
 
 return (
   <div className="card">
@@ -25,14 +46,16 @@ return (
         
         rel="noopener noreferrer" : Améliore la sécurité en empêchant la nouvelle page d'accéder à la page d'origine et aide également à prévenir les attaques de type phishing. Cela est particulièrement important lorsque tu utilises target="_blank".
   */}
-     {/* Affichage du cœur en fonction de isFavorite */}
+     {/* Cœur pour gérer les favoris */}
      <p>
-            <FontAwesomeIcon
-              icon={isFavorite ? solidHeart : regularHeart}
-              color={isFavorite ? "red" : "grey"} // Cœur rouge si favori, gris sinon
-              size="lg"
-            />
-          </p>
+        <FontAwesomeIcon
+          icon={isFavorite ? solidHeart : regularHeart} // Choix du cœur plein ou vide
+          color={isFavorite ? "#aa6762" : "grey"} // Rouge si favori, gris sinon
+          size="lg"
+          onClick={toggleFavorite} // Basculer le statut de favori au clic
+          style={{ cursor: 'pointer' }} // Curseur pointeur pour montrer que c'est cliquable
+        />
+      </p>
      <div className="languages">Languages:
         {/* <Link to={`/details/${id}`} >   voir le détail</Link> */}
           <ul>
@@ -41,6 +64,7 @@ return (
           ))}
           </ul> 
      </div> 
+
   </div>
 );
 }
