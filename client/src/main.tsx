@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import client from "./services/connexion.ts";
-
+import LanguageRepos from './components/LanguageRepos.tsx';
 import App from "./App.tsx";
 
 import './index.css';
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/languages",
     element: <App />,  
+  },
+  {
+    path: "/languages/:langId", // Route pour afficher les repos par langue
+    element: <LanguageRepos />, // Utiliser le nouveau composant LanguageRepos
   },
 
 

@@ -16,7 +16,7 @@ class RepoInput {
   url: string;
 
   @Field()
-  isPrivate: number;
+  isFavorite: boolean;
 
   @Field(() => [ID])  // Besoin de spécifier pour les tableaux le type pour graphQL
   languages: number[];
@@ -72,9 +72,10 @@ export default class RepoResolver {
      repo.id = newRepo.id;
      repo.name = newRepo.name;
      repo.url = newRepo.url;
+     repo.isFavorite = newRepo.isFavorite;
  
      const status = await Status.findOneOrFail({
-       where: { id: +newRepo.isPrivate },
+       where: { id: +newRepo.status },
      });
      repo.status = status;
 
@@ -102,5 +103,24 @@ export default class RepoResolver {
      console.log("myRepo", myRepo);
      return myRepo;
    }
+
+   @Mutation(() => Repo)
+  async updateFavoriteStatus(
+    @Arg("id") id: string,
+    @Arg("isFavorite") isFavorite: boolean
+  ) {
+    // Cherche le repo à partir de l'ID
+    const repo = await Repo.findOneOrFail({ where: { id }, relations: { status: true, languages: true } });
+
+    // Met à jour le statut 'isFavorite'
+    repo.isFavorite = isFavorite;
+
+    // Sauvegarde dans la BDD
+    await repo.save();
+
+    // Retourne le repo mis à jour
+    return repo;
+  }
+
  
 }
