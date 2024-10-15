@@ -1,7 +1,7 @@
 import type { Repo, Lang } from "../types/RepoType";
 import "./styleComponent.css";
-import { useMutation } from '@apollo/client';
-import UPDATE_FAVORITE_STATUS from '../services/UPDATE_FAVORITE_STATUS';
+// import { useMutation } from '@apollo/client';
+import { useUpdateFavoriteStatusMutation } from '../generated/graphql-types'; // Hook généré par codegen
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons'; // Coeur plein
@@ -12,9 +12,8 @@ import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'; /
 
 function RepoCard({ id, name, url, isFavorite, status, languages }: Repo){
   // Déterminer la couleur en fonction du status.id
-  const statusClass = status.label === 'Public' ? 'public' : 'private'; // Vert si Public, Rouge si Private
-  const [updateFavoriteStatus] = useMutation(UPDATE_FAVORITE_STATUS);
-
+  const statusClass = status?.label === 'Public' ? 'public' : 'privé'; // Vert si Public, Rouge si Private
+  const [updateFavoriteStatus] = useUpdateFavoriteStatusMutation();
 
   const toggleFavorite = () => {
     updateFavoriteStatus({
@@ -36,7 +35,7 @@ function RepoCard({ id, name, url, isFavorite, status, languages }: Repo){
 return (
   <div className="card">
     <h2 className="title">{name}</h2>
-       <h3 className={statusClass}>{status.label}</h3>
+       <h3 className={statusClass}>{status?.label || "Unknown"}</h3>
     <a className="url" href={url} target="_blank" rel="noopener noreferrer">{url}</a>
     {/* a pour les liens externes
     
@@ -58,11 +57,16 @@ return (
       </p>
      <div className="languages">Languages:
         {/* <Link to={`/details/${id}`} >   voir le détail</Link> */}
-          <ul>
-            {languages.map((lang: Lang) => (
+          {/* Vérifier que languages n'est pas undefined ou null avant d'appeler map */}
+        <ul>
+          {languages && languages.length > 0 ? (
+            languages.map((lang: Lang) => (
               <li key={lang.name} className="langTag">{lang.name}</li>
-          ))}
-          </ul> 
+            ))
+          ) : (
+            <li className="langTag">No languages available</li>
+          )}
+        </ul>
      </div> 
 
   </div>
