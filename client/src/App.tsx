@@ -16,9 +16,6 @@ function App() {
   const [allLanguages, setAllLanguages] = useState<{ id: number; name: string }[]>([]); // State pour stocker toutes les langues
   const [filteredReposCache, setFilteredReposCache] = useState<{ [key: string]: Repo[] }>({}); // Cache local des repos filtrés par langue
 
-  // const [isFetching, setIsFetching] = useState<boolean>(false); // Gère l'état de chargement manuellement
-
-
   // Effet pour mettre à jour la vue basée sur l'URL
   useEffect(() => {
     if (location.pathname === '/languages') {
@@ -83,22 +80,6 @@ function App() {
     refetchRepos({ filter: langId });
   };
 
-  // Fonction pour filtrer les repos par langue (au clic sur une langue)
-  // const filterRepoByLanguage = (langId: string | null) => {
-  //   setFilter(langId); // Met à jour l'état avec l'ID de la langue sélectionnée
-
-    // Si les repos pour cette langue sont déjà dans le cache local, on ne fait pas de nouvelle requête
-//     if (langId !== null && filteredReposCache[langId]) {
-//       return; // Ne refait pas la requête, utilise le cache local
-//     }
-//     if (langId === null && filteredReposCache.all) {
-//       return; // Si on clique sur "Tous les Repos" et qu'ils sont déjà dans le cache
-//     }
-//  // Si pas dans le cache, on lance la requête
-//     refetchRepos({ filter: langId }); // Relance la requête pour filtrer par langue
-//   };
-
-
   // Extraire les langues uniques à partir des repos
   const getUniqueLanguages = (repos: Repo[]) => {
     const languagesSet = new Set<string>();
@@ -128,25 +109,7 @@ function App() {
     <>
       <h1 className="titleH1">Mes Repos GitHub</h1>
 
-      <Navbar /> {/* Inclure la barre de navigation */}
-
-        {/* Barre de navigation avec toutes les langues */}
-          {/* <nav className="navbar">
-            <Link className="nav-link" to="/" onClick={() => filterRepoByLanguage(null)}>
-              <a className="nav-link" href="#">Tous les Repos</a>
-            </Link> */}
-
-        {/* Affichage dynamique des langues dans la navigation */}
-          {/* {allLanguages.map((lang: { id: number; name: string }) => (
-            <Link to={`/languages/${lang.id}`} 
-              key={lang.id} 
-              className="nav-link" 
-              onClick={() => filterRepoByLanguage(String(lang.id))}>
-              {lang.name}
-            </Link>
-            ))}
-          </nav> */}
-
+      <Navbar /> 
 
       <main className="main">
         {view === 'repos' && reposToDisplay  && (
@@ -184,6 +147,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
