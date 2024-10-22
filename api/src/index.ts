@@ -1,5 +1,6 @@
 import { ApolloServer } from "@apollo/server"; // preserve-line
 import { startStandaloneServer } from "@apollo/server/standalone";
+import * as dotenv from "dotenv";
 
 import { buildSchema } from "type-graphql";
 import { dataSource } from "./db/client";
@@ -8,6 +9,8 @@ import "reflect-metadata";
 import RepoResolver from "./repos/repo.resolvers";
 import LangResolver from "./langs/lang.resolvers";
 import StatusResolver from "./status/status.resolvers";
+
+dotenv.config();
 
 (async () => {
   await dataSource.initialize();
@@ -20,7 +23,7 @@ import StatusResolver from "./status/status.resolvers";
   });
 
   const { url } = await startStandaloneServer(server, {
-    listen: { port: 4000 },
+    listen: { port: Number(parseInt(process.env.PORT || '4000', 10))},
   });
 
   console.log(`🚀  Server ready at: ${url}`);
