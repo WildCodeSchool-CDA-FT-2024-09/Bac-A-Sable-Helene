@@ -11,6 +11,7 @@ import LangResolver from "./langs/lang.resolvers";
 import StatusResolver from "./status/status.resolvers";
 
 dotenv.config();
+const { PORT } = process.env;
 
 (async () => {
   await dataSource.initialize();
@@ -23,8 +24,10 @@ dotenv.config();
   });
 
   const { url } = await startStandaloneServer(server, {
-    listen: { port: Number(parseInt(process.env.PORT || '4000', 10))},
+    // listen: { port: Number(parseInt(process.env.PORT || '4000', 10))},
+    listen: { port: Number(PORT) },
   });
 
+  console.info("Docker compose is watching");
   console.log(`🚀  Server ready at: ${url}`);
 })();

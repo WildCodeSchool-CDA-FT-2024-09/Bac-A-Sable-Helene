@@ -29,7 +29,7 @@ export class Repo extends BaseEntity {
   url : string;
 
   @Field()
-  @Column({ default: () => false })
+  @Column({ default: false })
   @IsBoolean()
   isFavorite: boolean;
 

@@ -4,14 +4,12 @@ WORKDIR /app
 
 COPY *.json ./
 
-RUN npm install
+RUN npm i
 
 COPY src src
 
 COPY data data
 
-RUN npm run seed
-
 EXPOSE 4000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "full"]
