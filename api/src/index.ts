@@ -2,22 +2,24 @@ import { ApolloServer } from "@apollo/server"; // preserve-line
 import { startStandaloneServer } from "@apollo/server/standalone";
 import * as dotenv from "dotenv";
 
-import { buildSchema } from "type-graphql";
+// import { buildSchema } from "type-graphql";
 import { dataSource } from "./db/client";
 import "reflect-metadata";
 
-import RepoResolver from "./repos/repo.resolvers";
-import LangResolver from "./langs/lang.resolvers";
-import StatusResolver from "./status/status.resolvers";
+// import RepoResolver from "./repos/repo.resolvers";
+// import LangResolver from "./langs/lang.resolvers";
+// import StatusResolver from "./status/status.resolvers";
+import getSchema from "./schema";
 
 dotenv.config();
 const { PORT } = process.env;
 
 (async () => {
   await dataSource.initialize();
-  const schema = await buildSchema({
-    resolvers: [RepoResolver, LangResolver, StatusResolver],
-  });
+  // const schema = await buildSchema({
+  //   resolvers: [RepoResolver, LangResolver, StatusResolver],
+  // });
+  const schema = await getSchema();
 
   const server = new ApolloServer({
     schema,
