@@ -116,7 +116,7 @@ export type UpdateFavoriteStatusMutation = { __typename?: 'Mutation', updateFavo
 export type FullreposQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FullreposQuery = { __typename?: 'Query', fullrepos: Array<{ __typename?: 'Repo', id: string, name: string, url: string, isFavorite: boolean }> };
+export type FullreposQuery = { __typename?: 'Query', fullrepos: Array<{ __typename?: 'Repo', id: string, name: string, url: string, isFavorite: boolean, languages: Array<{ __typename?: 'Lang', id: number, name: string }>, status: { __typename?: 'Status', id: number, label: string } }> };
 
 export type LangsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -165,7 +165,15 @@ export const FullreposDocument = gql`
     id
     name
     url
+    languages {
+      id
+      name
+    }
     isFavorite
+    status {
+      id
+      label
+    }
   }
 }
     `;

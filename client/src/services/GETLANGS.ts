@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-const GET_LANGS = gql`
+const GETLANGS = gql`
   query langs {
     langs {
       id
@@ -8,4 +8,4 @@ const GET_LANGS = gql`
   }
 `;
 
-export default GET_LANGS;
+export default GETLANGS;

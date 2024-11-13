@@ -6,7 +6,15 @@ export const GET_REPOS = gql`
       id
       name
       url
+      languages {
+        id
+        name
+      }
       isFavorite
+      status {
+        id
+        label
+      }
     }
   }
 `;

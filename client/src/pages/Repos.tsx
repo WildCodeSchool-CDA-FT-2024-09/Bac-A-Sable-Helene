@@ -7,10 +7,15 @@ export default function Repos() {
 const GET_REPOS = gql`
   query Fullrepos {
     fullrepos {
-      id
-      name
-      url
       isFavorite
+    name
+    status {
+      label
+    }
+    languages {
+      name
+    }
+    url
     }
   }
 `;
@@ -28,7 +33,7 @@ if (error) return <p>Error</p>;
           name={repo.name}
           url={repo.url}
           id={repo.id}
-          status={repo.status} 
+          status={repo.status ? { label: repo.status.label } : { label: 'Pas de statut' }}
           languages={repo.languages}
           isFavorite={repo.isFavorite}
         />

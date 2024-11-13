@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import GET_LANGS from '../services/GETLANGS';
 
-const Navbar = () => {
+type NavbarProps = {
+  filterRepoByLanguage: (langId: string | null) => void;
+};
+
+const Navbar = ({ filterRepoByLanguage }: NavbarProps) => {
   // Requête pour récupérer toutes les langues
   const { loading, error, data } = useQuery(GET_LANGS);
 
@@ -13,13 +17,13 @@ const Navbar = () => {
     <nav className="navbar">
       <Link className="nav-link" to="/">Tous les Repos</Link>
       {data.langs.map((lang: { id: number; name: string }) => (
-        <Link
+        <button
           key={lang.id}
           className="nav-link"
-          to={`/languages/${lang.id}`}
+          onClick={() => filterRepoByLanguage(lang.id.toString())}
         >
           {lang.name}
-        </Link>
+        </button>
       ))}
     </nav>
   );

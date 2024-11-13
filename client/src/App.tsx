@@ -12,9 +12,8 @@ function App() {
   const location = useLocation();
   // State pour gérer l'affichage des repos ou des langues
   const [view, setView] = useState<'repos' | 'languages'>('repos');
-  const [filter, setFilter] = useState<string | null>(null); // State pour stocker le filtre
+  const [filter, setFilter] = useState<string | undefined>(undefined); // State pour stocker le filtre
   const [allLanguages, setAllLanguages] = useState<{ id: number; name: string }[]>([]); // State pour stocker toutes les langues
-  const [filteredReposCache, setFilteredReposCache] = useState<{ [key: string]: Repo[] }>({}); // Cache local des repos filtrés par langue
 
   // Effet pour mettre à jour la vue basée sur l'URL
   useEffect(() => {
@@ -28,35 +27,12 @@ function App() {
 
     // Utilisation du hook généré par GraphQL Codegen pour les repos  
     const { loading: loadingRepos, error: errorRepos, data: reposData, refetch: refetchRepos } = useFullreposQuery( {
-      variables: { filter },
+      variables: { filter: filter ?? undefined },
       fetchPolicy: 'cache-and-network', // Utilise d'abord le cache, puis rafraîchit les données en arrière-plan
-      // onCompleted: (data) => {
-      //   if (data?.getAllRepos) {
-      //     // Met à jour la liste des langues une seule fois lors du chargement initial
-      //     if (allLanguages.length === 0) {
-      //       const languages = getUniqueLanguages(data.getAllRepos);
-      //       setAllLanguages(languages);
-      //     }
-      //     // Mise à jour du cache local avec les repos filtrés
-      //     if (filter !== null) {
-      //       setFilteredReposCache((prevCache) => ({
-      //         ...prevCache,
-      //         [filter]: data.getAllRepos // Stocke les résultats pour ce filtre/langue
-      //       }));
-      //     } else {
-      //       setFilteredReposCache((prevCache) => ({
-      //         ...prevCache,
-      //         all: data.getAllRepos // Stocke les résultats pour "Tous les Repos"
-      //       }));
-      //     }
-      //   }
-      // }
     });
 
       // Utilisation du hook généré par GraphQL Codegen pour les langues
-  const { data: langsData, loading: loadingLangs, error: errorLangs } = useLangsQuery({
-    fetchPolicy: 'cache-and-network',
-  });
+      useLangsQuery({ fetchPolicy: 'cache-and-network' });
 
   // Met à jour les langues après récupération des repos
   useEffect(() => {
@@ -67,17 +43,8 @@ function App() {
   }, [reposData]);
 
   const filterRepoByLanguage = (langId: string | null) => {
-    setFilter(langId);
-
-    if (langId !== null && filteredReposCache[langId]) {
-      return;
-    }
-
-    if (langId === null && filteredReposCache.all) {
-      return;
-    }
-
-    refetchRepos({ filter: langId });
+    setFilter(langId || undefined);
+    refetchRepos({ filter: langId ?? undefined  }); // Rafraîchit les repos avec le nouveau filtre
   };
 
   // Extraire les langues uniques à partir des repos
@@ -99,17 +66,18 @@ function App() {
   if (loadingRepos) return <h1>Loading ...</h1>;
   if (errorRepos) return <p>Error: {errorRepos.message}</p>;
 
-  // Détermine quels repos afficher : ceux dans le cache ou les résultats actuels
-  const reposToDisplay = filter === null
-  ? filteredReposCache.all || reposData?.fullrepos
-  : filteredReposCache[filter] || reposData?.fullrepos;
-
+   // Détermine quels repos afficher : filtrés par le filtre ou tous les repos
+   const reposToDisplay = filter === undefined
+   ? reposData?.fullrepos // Afficher tous les repos
+   : reposData?.fullrepos.filter(repo => 
+       repo.languages?.some(lang => lang.id.toString() === filter) // Filtre les repos par langue
+     );
 
   return (
     <>
       <h1 className="titleH1">Mes Repos GitHub</h1>
 
-      <Navbar /> 
+      <Navbar filterRepoByLanguage={filterRepoByLanguage} /> 
 
       <main className="main">
         {view === 'repos' && reposToDisplay  && (
@@ -132,7 +100,7 @@ function App() {
 
         {view === 'languages' && allLanguages && (
           <>
-            <h2 className="langCard">Liste des Langues</h2>
+            <h2 className="langCard">Liste des Languages</h2>
             <ul className="langUrl">
               {allLanguages.map((lang: { id: number; name: string }) => (
                 <li key={lang.id}>

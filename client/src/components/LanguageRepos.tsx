@@ -1,7 +1,7 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 import GETREPOS from '../services/GETREPOS'; // Service pour récupérer les repos
-import GET_LANGS from '../services/GETLANGS'; // Service pour récupérer les langues
+import GETLANGS from '../services/GETLANGS'; // Service pour récupérer les langues
 import RepoCard from '../components/RepoCard';
 import type { Lang, Repo } from '../types/RepoType';
 import Navbar from './NavBar';
@@ -11,7 +11,7 @@ function LanguageRepos() {
   const { langId } = useParams(); // Récupère l'ID de la langue depuis l'URL
 
   // Requête pour récupérer toutes les langues
-  const { loading: loadingLangs, error: errorLangs, data: langsData } = useQuery(GET_LANGS);
+  const { loading: loadingLangs, error: errorLangs, data: langsData } = useQuery(GETLANGS);
 
   // Requête pour récupérer les repos selon la langue sélectionnée (si langId existe)
   const { loading: loadingRepos, error: errorRepos, data: reposData } = useQuery(GETREPOS, {
@@ -34,7 +34,7 @@ function LanguageRepos() {
      <Navbar />
       <h1>Les repos utilisant {langId ? langsData?.langs.find((lang: Lang) => lang.id === parseInt(langId))?.name : "Select a language"}</h1>
 
-      {/* Affichage des repos filtrés si une langue est sélectionnée */}
+      {/* Affichage des repos filtrés si un langage est sélectionné */}
       {langId && (
         <div className="main">
           {repos.length > 0 ? (
