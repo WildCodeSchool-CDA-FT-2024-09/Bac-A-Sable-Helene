@@ -7,6 +7,14 @@ export const GET_REPOS = gql`
       name
       url
       isFavorite
+      status {
+        id
+        label
+      }
+      languages {  # Ajout de la sélection des sous-champs de languages
+        id
+        name
+      }
     }
   }
 `;
@@ -17,5 +25,11 @@ export const GET_LANGS = gql`
       id
       name
     }
+  }
+`;
+
+export const LOGIN = gql`
+  query Login($password: String!, $email: String!) {
+    login(password: $password, email: $email)
   }
 `;

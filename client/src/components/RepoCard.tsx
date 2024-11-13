@@ -12,7 +12,7 @@ import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'; /
 
 function RepoCard({ id, name, url, isFavorite, status, languages }: Repo){
   // Déterminer la couleur en fonction du status.id
-  const statusClass = status?.label === 'Public' ? 'public' : 'privé'; // Vert si Public, Rouge si Private
+  const statusClass = status?.label === 'Public' ? 'public' : 'private'; // Vert si Public, Rouge si Private
   const [updateFavoriteStatus] = useUpdateFavoriteStatusMutation();
 
   const toggleFavorite = () => {

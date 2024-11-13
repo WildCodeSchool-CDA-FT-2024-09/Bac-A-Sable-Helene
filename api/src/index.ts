@@ -9,6 +9,8 @@ import "reflect-metadata";
 import RepoResolver from "./repos/repo.resolvers";
 import LangResolver from "./langs/lang.resolvers";
 import StatusResolver from "./status/status.resolvers";
+import UserResolver from "./user/user.resolvers";
+
 
 dotenv.config();
 const { PORT } = process.env;
@@ -16,7 +18,7 @@ const { PORT } = process.env;
 (async () => {
   await dataSource.initialize();
   const schema = await buildSchema({
-    resolvers: [RepoResolver, LangResolver, StatusResolver],
+    resolvers: [RepoResolver, LangResolver, StatusResolver, UserResolver],
   });
 
   const server = new ApolloServer({
@@ -26,6 +28,10 @@ const { PORT } = process.env;
   const { url } = await startStandaloneServer(server, {
     // listen: { port: Number(parseInt(process.env.PORT || '4000', 10))},
     listen: { port: Number(PORT) },
+    context: async ({ req, res }) => {
+      console.info(req);
+      return { res };
+    },
   });
 
   console.info("Docker compose is watching");

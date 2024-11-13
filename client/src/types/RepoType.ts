@@ -3,13 +3,19 @@ export type Lang = {
   name: string
 }
 
+export type Status = {
+  __typename?: "Status";
+  id: number;
+  label?: string;
+};
+
+
 export type Repo = {
+  __typename?: 'Repo';
   id: string;
   name: string;
   url: string;
-  status: {
-    label: string;
-   } ;
   languages: Lang[]; 
   isFavorite: boolean;
-}
+  status: Status;
+};
