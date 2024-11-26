@@ -28,6 +28,7 @@ class RepoInput {
 @Resolver(Repo)
 export default class RepoResolver {
   // Methode GET pour tous les repos
+  // @Authorized()
   @Query(() => [Repo])
   async fullrepos() {
     const repos = await Repo.find({
@@ -40,6 +41,7 @@ export default class RepoResolver {
     return repos;
   }
 
+  //@Authorized("admin")
   @Query(() => [Repo])
   async getAllRepos(@Arg("filter", {nullable: true}) filter: string) {
     if (filter) {
@@ -55,41 +57,43 @@ export default class RepoResolver {
     });
   }
 
-   @Query(() => [LightRepo])
-   async lightrepos() {
-     const repos = await Repo.find();
-     console.info(repos);
-     return repos;
-   }
+  //@Authorized()
+  @Query(() => [LightRepo])
+  async lightrepos() {
+    const repos = await Repo.find();
+    console.info(repos);
+    return repos;
+  }
 
-   @Mutation(() => Repo)
-   async createNewRepo(@Arg("data") newRepo: RepoInput) {
-     //const newRepo: RepoInput = req.body.data
-     // fonction de validation
-     console.info(newRepo);
+  //@Authorized()
+  @Mutation(() => Repo)
+  async createNewRepo(@Arg("data") newRepo: RepoInput) {
+    //const newRepo: RepoInput = req.body.data
+    // fonction de validation
+    console.info(newRepo);
  
-     const repo = new Repo();
-     repo.id = newRepo.id;
-     repo.name = newRepo.name;
-     repo.url = newRepo.url;
-     repo.isFavorite = newRepo.isFavorite;
+    const repo = new Repo();
+    repo.id = newRepo.id;
+    repo.name = newRepo.name;
+    repo.url = newRepo.url;
+    repo.isFavorite = newRepo.isFavorite;
  
-     const status = await Status.findOneOrFail({
-       where: { id: +newRepo.status },
-     });
-     repo.status = status;
+    const status = await Status.findOneOrFail({
+      where: { id: +newRepo.status },
+    });
+    repo.status = status;
 
-     // Appel à LangResolver pour récupérer les langues par ID
-     const langResolver = new LangResolver();
-     const languages = [];
-     for (const langId of newRepo.languages) {
-       const lang = await langResolver.lang(langId);
-       if (lang) {
-         languages.push(lang);
-       }
-     }
+    // Appel à LangResolver pour récupérer les langues par ID
+    const langResolver = new LangResolver();
+    const languages = [];
+    for (const langId of newRepo.languages) {
+      const lang = await langResolver.lang(langId);
+      if (lang) {
+        languages.push(lang);
+      }
+    }
  
-     repo.languages = languages;
+    repo.languages = languages;
  
      await repo.save();
      console.log("repo", repo);
@@ -104,6 +108,7 @@ export default class RepoResolver {
      return myRepo;
    }
 
+   //@Authorized()
    @Mutation(() => Repo)
   async updateFavoriteStatus(
     @Arg("id") id: string,
@@ -121,6 +126,4 @@ export default class RepoResolver {
     // Retourne le repo mis à jour
     return repo;
   }
-
- 
 }

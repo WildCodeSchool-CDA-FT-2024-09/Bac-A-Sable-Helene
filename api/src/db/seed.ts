@@ -27,8 +27,8 @@ import repoLang from "../../data/repoLang.json"
     await queryRunner.query("TRUNCATE lang CASCADE");
     await queryRunner.query("TRUNCATE repo CASCADE");
     await queryRunner.query("TRUNCATE status CASCADE");
-    await queryRunner.query(`ALTER SEQUENCE lang_id_seq RESTART WITH 1;`);
-    await queryRunner.query(`ALTER SEQUENCE status_id_seq RESTART WITH 1;`);
+    // await queryRunner.query(`ALTER SEQUENCE lang_id_seq RESTART WITH 1;`);
+    // await queryRunner.query(`ALTER SEQUENCE status_id_seq RESTART WITH 1;`);
 
     console.log("Truncate DONE");
     await queryRunner.commitTransaction();
